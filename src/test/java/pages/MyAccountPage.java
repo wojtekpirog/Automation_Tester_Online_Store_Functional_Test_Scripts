@@ -12,10 +12,10 @@ public class MyAccountPage {
     PageFactory.initElements(browser, this);
   }
 
-  @FindBy(xpath = "//*[@id=\"address-link\"]")
-  private WebElement myFirstAddressButton;
+  @FindBy(xpath = "//*[@id=\"addresses-link\"]")
+  private WebElement AddressesButton;
 
   public void goToAddressCreationForm() {
-    this.myFirstAddressButton.click();
+    this.AddressesButton.click();
   }
 }

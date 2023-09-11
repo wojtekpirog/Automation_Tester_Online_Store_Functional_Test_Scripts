@@ -21,21 +21,21 @@ public class AddressCreationForm {
   private WebElement cityInput;
   @FindBy(xpath = "//*[@id=\"field-postcode\"]")
   private WebElement zipcodeInput;
-  @FindBy(xpath = "//*[@id=\"field-country\"]")
+  @FindBy(xpath = "//*[@id=\"field-id_country\"]")
   private WebElement countryDropdown;
   @FindBy(xpath = "//*[@id=\"field-phone\"]")
   private WebElement phoneInput;
   @FindBy(xpath = "//*[@id=\"content\"]/div/div/form/footer/button")
   private WebElement saveButton;
 
-  public void fillInForm(String alias, String address, String city, String zipcode, String country, String phone) {
+  public void fillInFormWith(String alias, String address, String city, String zipcode, String country, String phone) {
     this.aliasInput.sendKeys(alias);
     this.addressInput.sendKeys(address);
     this.cityInput.sendKeys(city);
     this.zipcodeInput.sendKeys(zipcode);
-    Select countryDropdown = new Select(this.countryDropdown);
-    countryDropdown.selectByVisibleText(country);
+    Select countrySelect = new Select(this.countryDropdown);
+    countrySelect.selectByVisibleText(country);
     this.phoneInput.sendKeys(phone);
-    this.phoneInput.click();
+    this.saveButton.click();
   }
 }

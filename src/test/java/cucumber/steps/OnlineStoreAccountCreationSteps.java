@@ -1,13 +1,11 @@
 package cucumber.steps;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.AddressCreationForm;
-import pages.LoginPage;
-import pages.MainPage;
-import pages.MyAccountPage;
+import pages.*;
 
 public class OnlineStoreAccountCreationSteps {
   private WebDriver browser;
@@ -26,12 +24,21 @@ public class OnlineStoreAccountCreationSteps {
     loginPage.loginUser();
   }
 
-  @When("User creates an address with {string}, {string}, {string}, {word}, {string}, {word}")
-  public void createAnAddress(String alias, String address, String city, String zipcode, String country, String phone) {
+  @When("User creates an address with {string}, {string}, {string}, {word}, {string}, {string}")
+  public void createAnAddressWith(String alias, String address, String city, String zipcode, String country, String phone) {
     MyAccountPage myAccountPage = new MyAccountPage(this.browser);
     myAccountPage.goToAddressCreationForm();
 
+    YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
+    pageWithAddresses.goToAddressCreationForm();
+
     AddressCreationForm addressCreationForm = new AddressCreationForm(this.browser);
-    addressCreationForm.fillInForm(alias, address, city, zipcode, country, phone);
+    addressCreationForm.fillInFormWith(alias, address, city, zipcode, country, phone);
+  }
+
+  @Then("The address is created with appropriate data: {string}, {string}, {string}, {word}, {string}, {string}")
+  public void checkData(String expectedAlias, String expectedAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhone) {
+    YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
+    pageWithAddresses.checkData(expectedAlias, expectedAddress, expectedCity, expectedZipcode, expectedCountry, expectedPhone);
   }
 }
