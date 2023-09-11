@@ -3,6 +3,8 @@ Feature: Address creation
     Given User is logged in to his page
     When User creates an address with <Alias>, <Address>, <City>, <Zip/Postal Code>, <Country>, <Phone>
     Then The address is created with appropriate data: <Alias>, <Address>, <City>, <Zip/Postal Code>, <Country>, <Phone>
+    And User can delete the address
+    Then The address is not visible in the Addresses page
 
     Examples:
       | Alias   | Address            | City      | Zip/Postal Code | Country          | Phone           |

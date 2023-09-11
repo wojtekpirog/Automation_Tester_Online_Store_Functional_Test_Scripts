@@ -1,11 +1,15 @@
 package cucumber.steps;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
+
+import java.time.Duration;
+import java.util.NoSuchElementException;
 
 public class OnlineStoreAccountCreationSteps {
   private WebDriver browser;
@@ -40,5 +44,17 @@ public class OnlineStoreAccountCreationSteps {
   public void checkData(String expectedAlias, String expectedAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhone) {
     YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
     pageWithAddresses.checkData(expectedAlias, expectedAddress, expectedCity, expectedZipcode, expectedCountry, expectedPhone);
+  }
+
+  @And("User can delete the address")
+  public void deleteAddress() {
+    YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
+    pageWithAddresses.deleteAddress();
+  }
+
+  @Then("The address is not visible in the Addresses page")
+  public void assertAddressDeleted() {
+    YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
+    pageWithAddresses.assertThatAddressIsNotPresent();
   }
 }
