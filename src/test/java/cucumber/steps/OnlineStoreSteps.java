@@ -44,6 +44,9 @@ public class OnlineStoreSteps {
 
     MainPage mainPage = new MainPage(this.browser);
     mainPage.openProductDetailsPage();
+
+    ProductDetailsPage pdp = new ProductDetailsPage(this.browser);
+    pdp.addProductToCart();
   }
 
   @Then("The address is created with appropriate data: {string}, {string}, {string}, {word}, {string}, {string}")
