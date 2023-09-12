@@ -8,13 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
-import java.time.Duration;
-import java.util.NoSuchElementException;
-
-public class OnlineStoreAccountCreationSteps {
+public class OnlineStoreSteps {
   private WebDriver browser;
 
-  @Given("User is logged in to his page")
+  @Given("User is logged in to their homepage")
   public void LogInToUserAccount() {
     System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
     this.browser = new ChromeDriver();
@@ -38,6 +35,15 @@ public class OnlineStoreAccountCreationSteps {
 
     AddressCreationForm addressCreationForm = new AddressCreationForm(this.browser);
     addressCreationForm.fillInFormWith(alias, address, city, zipcode, country, phone);
+  }
+
+  @When("User places an order for a specific product")
+  public void placeAnOrder() {
+    MyAccountPage myAccountPage = new MyAccountPage(this.browser);
+    myAccountPage.goToHomePage();
+
+    MainPage mainPage = new MainPage(this.browser);
+    mainPage.openProductDetailsPage();
   }
 
   @Then("The address is created with appropriate data: {string}, {string}, {string}, {word}, {string}, {string}")

@@ -15,6 +15,13 @@ public class MyAccountPage {
   @FindBy(xpath = "//*[@id=\"addresses-link\"]")
   private WebElement AddressesButton;
 
+  @FindBy(xpath = "//*[@id=\"_desktop_logo\"]/a")
+  private WebElement storeLogo;
+
+  public void goToHomePage() {
+    this.storeLogo.click();
+  }
+
   public void goToAddressCreationForm() {
     this.AddressesButton.click();
   }

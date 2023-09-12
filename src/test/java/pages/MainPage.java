@@ -16,7 +16,14 @@ public class MainPage {
   @FindBy(xpath = "//*[@id=\"_desktop_user_info\"]/div/a")
   private WebElement signInAnchor;
 
+  @FindBy(xpath = "//a[text()='Hummingbird printed sweater']")
+  private WebElement productSelectionAnchor;
+
   public void goToLoginPage() {
     this.signInAnchor.click();
+  }
+
+  public void openProductDetailsPage() {
+    this.productSelectionAnchor.click();
   }
 }
