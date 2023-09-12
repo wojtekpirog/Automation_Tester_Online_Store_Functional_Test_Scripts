@@ -47,6 +47,12 @@ public class OnlineStoreSteps {
 
     ProductDetailsPage pdp = new ProductDetailsPage(this.browser);
     pdp.addProductToCart();
+
+    ShoppingCartPage shoppingCart = new ShoppingCartPage(this.browser);
+    shoppingCart.proceedToCheckout();
+
+    DeliveryAndPaymentInformationPage informationPage = new DeliveryAndPaymentInformationPage(this.browser);
+    informationPage.AcceptAddressInformation();
   }
 
   @Then("The address is created with appropriate data: {string}, {string}, {string}, {word}, {string}, {string}")
