@@ -47,6 +47,7 @@ public class OnlineStoreSteps {
     mainPage.openProductDetailsPage();
 
     ProductDetailsPage pdp = new ProductDetailsPage(this.browser);
+    pdp.checkForDiscount();
     pdp.addProductToCart();
 
     ShoppingCartPage shoppingCart = new ShoppingCartPage(this.browser);

@@ -13,7 +13,8 @@ public class MainPage {
     PageFactory.initElements(browser, this);
   }
 
-  @FindBy(xpath = "//*[@id=\"_desktop_user_info\"]/div/a")
+//  @FindBy(xpath = "//*[@id=\"_desktop_user_info\"]/div/a")
+  @FindBy(xpath = "//a/span[text()='Sign in']")
   private WebElement signInAnchor;
 
   @FindBy(xpath = "//a[text()='Hummingbird printed sweater']")
