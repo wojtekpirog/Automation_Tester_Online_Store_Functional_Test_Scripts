@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
+import java.io.IOException;
 
 public class OnlineStoreSteps {
   private WebDriver browser;
@@ -53,6 +54,18 @@ public class OnlineStoreSteps {
 
     DeliveryAndPaymentInformationPage informationPage = new DeliveryAndPaymentInformationPage(this.browser);
     informationPage.AcceptAddressInformation();
+  }
+
+  @Then("User can see the order confirmation along with its amount")
+  public void takeScreenshotWithOrderConfirmation() {
+    String pathWithFile = "C:\\Users\\HARDPC\\Pictures\\Screenshots\\confirmation_screenshot.png";
+    OrderConfirmationPage confirmationPage = new OrderConfirmationPage(this.browser);
+    try {
+      confirmationPage.takeScreenshot(pathWithFile);
+      System.out.println("✅Screenshot has been taken and saved to " + pathWithFile);
+    } catch (IOException e) {
+      System.err.println("‼️An error occurred while copying file: " + e.getMessage());
+    }
   }
 
   @Then("The address is created with appropriate data: {string}, {string}, {string}, {word}, {string}, {string}")
