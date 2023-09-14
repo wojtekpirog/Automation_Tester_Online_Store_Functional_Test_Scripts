@@ -1,13 +1,12 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.time.Duration;
-import java.util.NoSuchElementException;
+import org.testng.asserts.Assertion;
 
 public class YourAddressesPage {
   private WebDriver browser;
@@ -17,8 +16,8 @@ public class YourAddressesPage {
     PageFactory.initElements(browser, this);
   }
 
-  @FindBy(xpath = "//*[@id=\"notifications\"]/div/article/ul/li")
-  private WebElement successAlert;
+  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]")
+  private WebElement addressBody;
   @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[1]/h4")
   private WebElement addressAlias;
   @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[1]/address/text()[2]")
@@ -42,12 +41,11 @@ public class YourAddressesPage {
 
   public void assertThatAddressIsNotPresent() {
     //Check if address does not exist on the 'Addresses' page:
-    try {
-      Assert.assertEquals("Address successfully deleted!", this.successAlert.getText());
-      System.out.println("✅Address has been deleted successfully✅");
-    } catch (NoSuchElementException e) {
-      Assert.fail("⚠️There is no success alert⚠️. Error message: " + e.getMessage());
-      System.out.println("‼️Failed to delete an address‼️");
+    if (this.browser.findElements(By.xpath("/html/body/main/section/div/div/section/section/div[2]")).isEmpty()) {
+      System.out.println("Element is not present on the \"Your Addresses\" page");
+    } else {
+      //Fail the test if address is still visible on the "Your Addresses" page:
+      Assert.fail("⚠️Element is still present on the \"Your Addresses\" page⚠️");
     }
   }
 
@@ -56,26 +54,23 @@ public class YourAddressesPage {
   }
 
   //Checking if entered data is correct:
-  public void checkData(String expectedAlias, String expectedAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhone) {
-    //Checking if address was created successfully:
+  public void checkData(String expectedAlias, String expectedStreetAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhone) {
+    String addressText = this.addressBody.getText();
+
+    //Compare data in the address box with expected data:
     try {
-      Assert.assertEquals("Address successfully added!", this.successAlert.getText());
-      System.out.println("✅Address has been created successfully✅");
-    } catch (NoSuchElementException e) {
-      Assert.fail("There is no success alert. Read the error message: " + e.getMessage());
-      System.out.println("‼️Failed to add a new address‼️");
+      Assert.assertTrue(addressText.contains(expectedAlias));
+      Assert.assertTrue(addressText.contains(expectedStreetAddress));
+      Assert.assertTrue(addressText.contains(expectedCity));
+      Assert.assertTrue(addressText.contains(expectedZipcode));
+      Assert.assertTrue(addressText.contains(expectedCountry));
+      Assert.assertTrue(addressText.contains(expectedPhone));
+      System.out.println("✅All user address data is correct✅");
+    } catch (AssertionError e) {
+      Assert.fail("Assertion error. Failed to assert that entered data is correct.");
+      System.err.println("Error message: " + e.getMessage());
+    } finally {
+      System.out.println("All assertions have been done");
     }
-    //Checking address alias:
-//    Assert.assertEquals(expectedAlias, this.addressAlias.getText());
-    //Checking street address:
-//    Assert.assertEquals(expectedAddress, this.streetAddress.getText());
-    //Checking city:
-//    Assert.assertEquals(expectedCity, this.city.getText());
-    //Checking zipcode:
-//    Assert.assertEquals(expectedZipcode, this.zipcode.getText());
-    //Checking country:
-//    Assert.assertEquals(expectedCountry, this.country.getText());
-    //Checking phone number:
-//    Assert.assertEquals(expectedPhone, this.phone.getText());
   }
 }
