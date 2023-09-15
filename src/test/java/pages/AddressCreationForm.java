@@ -2,9 +2,12 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class AddressCreationForm {
   private WebDriver browser;
@@ -13,19 +16,21 @@ public class AddressCreationForm {
     PageFactory.initElements(browser, this);
   }
 
-  @FindBy(xpath = "//*[@id=\"field-alias\"]")
+  @FindBy(xpath = "//input[@id=\"field-alias\"]")
   private WebElement aliasInput;
-  @FindBy(xpath = "//*[@id=\"field-address1\"]")
+  @FindBy(xpath = "//input[@id=\"field-address1\"]")
   private WebElement addressInput;
-  @FindBy(xpath = "//*[@id=\"field-city\"]")
+  @FindBy(xpath = "//input[@id=\"field-city\"]")
   private WebElement cityInput;
-  @FindBy(xpath = "//*[@id=\"field-postcode\"]")
+  @FindBy(xpath = "//input[@id=\"field-postcode\"]")
   private WebElement zipcodeInput;
-  @FindBy(xpath = "//*[@id=\"field-id_country\"]")
+  @FindBy(xpath = "//select[@id=\"field-id_country\"]")
   private WebElement countryDropdown;
-  @FindBy(xpath = "//*[@id=\"field-phone\"]")
+  @FindAll({@FindBy(xpath = "//select[@id=\"field-id_country\"]/option")})
+  private List<WebElement> countryOptions;
+  @FindBy(xpath = "//input[@id=\"field-phone\"]")
   private WebElement phoneInput;
-  @FindBy(xpath = "//*[@id=\"content\"]/div/div/form/footer/button")
+  @FindBy(xpath = "//section[@id=\"content\"]//button")
   private WebElement saveButton;
 
   public void fillInFormWith(String alias, String address, String city, String zipcode, String country, String phone) {
@@ -33,8 +38,15 @@ public class AddressCreationForm {
     this.addressInput.sendKeys(address);
     this.cityInput.sendKeys(city);
     this.zipcodeInput.sendKeys(zipcode);
-    Select countrySelect = new Select(this.countryDropdown);
-    countrySelect.selectByVisibleText(country);
+    this.countryDropdown.click();
+
+    for (WebElement countryOption : countryOptions) {
+      if (countryOption.getText().equals(country)) {
+        countryOption.click();
+        break;
+      }
+    }
+
     this.phoneInput.sendKeys(phone);
     this.saveButton.click();
   }
