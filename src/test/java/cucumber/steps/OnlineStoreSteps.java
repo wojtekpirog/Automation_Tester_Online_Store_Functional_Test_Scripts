@@ -15,52 +15,52 @@ public class OnlineStoreSteps {
   @Given("User is logged in to their homepage")
   public void LogInToUserAccount() {
     System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
-    this.browser = new ChromeDriver();
-    this.browser.manage().window().maximize();
-    this.browser.get("https://mystore-testlab.coderslab.pl/index.php?");
+    browser = new ChromeDriver();
+    browser.manage().window().maximize();
+    browser.get("https://mystore-testlab.coderslab.pl/index.php?");
 
-    MainPage mainPage = new MainPage(this.browser);
+    MainPage mainPage = new MainPage(browser);
     mainPage.goToLoginPage();
 
-    LoginPage loginPage = new LoginPage(this.browser);
+    LoginPage loginPage = new LoginPage(browser);
     loginPage.loginUser();
   }
 
   @When("User creates an address with {string}, {string}, {string}, {word}, {string}, {string}")
   public void createAnAddressWith(String alias, String address, String city, String zipcode, String country, String phone) {
-    MyAccountPage myAccountPage = new MyAccountPage(this.browser);
+    MyAccountPage myAccountPage = new MyAccountPage(browser);
     myAccountPage.goToAddressCreationForm();
 
-    YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
-    pageWithAddresses.goToAddressCreationForm();
+    YourAddressesPage yourAddressesPage = new YourAddressesPage(browser);
+    yourAddressesPage.goToAddressCreationForm();
 
-    AddressCreationForm addressCreationForm = new AddressCreationForm(this.browser);
+    AddressCreationForm addressCreationForm = new AddressCreationForm(browser);
     addressCreationForm.fillInFormWith(alias, address, city, zipcode, country, phone);
   }
 
   @When("User places an order for a specific product")
   public void placeAnOrder() {
-    MyAccountPage myAccountPage = new MyAccountPage(this.browser);
+    MyAccountPage myAccountPage = new MyAccountPage(browser);
     myAccountPage.goToHomePage();
 
-    MainPage mainPage = new MainPage(this.browser);
+    MainPage mainPage = new MainPage(browser);
     mainPage.openProductDetailsPage();
 
-    ProductDetailsPage pdp = new ProductDetailsPage(this.browser);
+    ProductDetailsPage pdp = new ProductDetailsPage(browser);
     pdp.checkForDiscount();
     pdp.addProductToCart();
 
-    ShoppingCartPage shoppingCart = new ShoppingCartPage(this.browser);
+    ShoppingCartPage shoppingCart = new ShoppingCartPage(browser);
     shoppingCart.proceedToCheckout();
 
-    DeliveryAndPaymentInformationPage informationPage = new DeliveryAndPaymentInformationPage(this.browser);
+    DeliveryAndPaymentInformationPage informationPage = new DeliveryAndPaymentInformationPage(browser);
     informationPage.AcceptAddressInformation();
   }
 
   @Then("User can see the order confirmation along with its amount")
   public void takeScreenshotWithOrderConfirmation() {
     String pathWithFile = "C:\\Users\\HARDPC\\Pictures\\Screenshots\\confirmation_screenshot.png";
-    OrderConfirmationPage confirmationPage = new OrderConfirmationPage(this.browser);
+    OrderConfirmationPage confirmationPage = new OrderConfirmationPage(browser);
     try {
       confirmationPage.takeScreenshot(pathWithFile);
       System.out.println("✅Screenshot has been taken and saved to " + pathWithFile);
@@ -71,19 +71,19 @@ public class OnlineStoreSteps {
 
   @Then("The address is created with appropriate data: {string}, {string}, {string}, {word}, {string}, {string}")
   public void checkData(String expectedAlias, String expectedAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhone) {
-    YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
+    YourAddressesPage pageWithAddresses = new YourAddressesPage(browser);
     pageWithAddresses.checkData(expectedAlias, expectedAddress, expectedCity, expectedZipcode, expectedCountry, expectedPhone);
   }
 
   @And("User can delete the address")
   public void deleteAddress() {
-    YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
+    YourAddressesPage pageWithAddresses = new YourAddressesPage(browser);
     pageWithAddresses.deleteAddress();
   }
 
   @Then("The address is not visible in the Addresses page")
   public void assertAddressDeleted() {
-    YourAddressesPage pageWithAddresses = new YourAddressesPage(this.browser);
-    pageWithAddresses.assertThatAddressIsNotPresent();
+    YourAddressesPage pageWithAddresses = new YourAddressesPage(browser);
+    pageWithAddresses.assertThatAddressWasDeleted();
   }
 }

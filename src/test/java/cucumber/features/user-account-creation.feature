@@ -7,5 +7,5 @@ Feature: Address creation
     Then The address is not visible in the Addresses page
 
     Examples:
-      | Alias   | Address            | City      | Zip/Postal Code | Country          | Phone           |
-      | "Work"  | "20 Oxford Street" | "London"  | 00-000          | "United Kingdom" | "+44 123456789" |
+      | Alias   | Address            | City          | Zip/Postal Code | Country                 | Phone           |
+      | "Work"  | "20 Oxford Street" | "Manchester"  | 00-000          | "United Kingdom"        | "+44 123456789" |

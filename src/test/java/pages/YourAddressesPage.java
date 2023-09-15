@@ -1,12 +1,10 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.Assertion;
 
 public class YourAddressesPage {
   private WebDriver browser;
@@ -16,46 +14,38 @@ public class YourAddressesPage {
     PageFactory.initElements(browser, this);
   }
 
-  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]")
-  private WebElement addressBody;
-  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[1]/h4")
-  private WebElement addressAlias;
-  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[1]/address/text()[2]")
-  private WebElement streetAddress;
-  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[1]/address/text()[3]")
-  private WebElement city;
-  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[1]/address/text()[4]")
-  private WebElement zipcode;
-  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[1]/address/text()[5]")
-  private WebElement country;
-  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[1]/address/text()[6]")
-  private WebElement phone;
-  @FindBy(xpath = "//*[@id=\"content\"]/div[3]/a")
+  @FindBy(xpath = "//section[@id=\"content\"]/div[last()-2]")
+  private WebElement lastAddressBody;
+  @FindBy(xpath = "//a[@data-link-action=\"add-address\"]")
   private WebElement createNewAddressAnchor;
-  @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[2]/article/div[2]/a[2]")
+  @FindBy(xpath = "//section[@id=\"content\"]/div[last()-2]//a[@data-link-action=\"delete-address\"]")
   private WebElement deleteAddressAnchor;
+  @FindBy(xpath = "//article[@data-alert='success']/ul/li")
+  private WebElement successAlert;
 
   public void deleteAddress() {
-    this.deleteAddressAnchor.click();
+    deleteAddressAnchor.click();
   }
 
-  public void assertThatAddressIsNotPresent() {
+  //Method to start creating a new address
+  public void goToAddressCreationForm() {
+    createNewAddressAnchor.click();
+  }
+
+  //Method to assert that address is not present after deletion
+  public void assertThatAddressWasDeleted() {
     //Check if address does not exist on the 'Addresses' page:
-    if (this.browser.findElements(By.xpath("/html/body/main/section/div/div/section/section/div[2]")).isEmpty()) {
-      System.out.println("Element is not present on the \"Your Addresses\" page");
-    } else {
-      //Fail the test if address is still visible on the "Your Addresses" page:
-      Assert.fail("⚠️Element is still present on the \"Your Addresses\" page⚠️");
+    try {
+      Assert.assertTrue(successAlert.getText().contains("deleted"));
+      System.out.println("✅Address has been deleted successfully.✅");
+    } catch (AssertionError e) {
+      Assert.fail("❌Address is still visible on the \"Your addresses\" page❌");
     }
   }
 
-  public void goToAddressCreationForm() {
-    this.createNewAddressAnchor.click();
-  }
-
-  //Checking if entered data is correct:
+  //Method to check if entered data is correct:
   public void checkData(String expectedAlias, String expectedStreetAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhone) {
-    String addressText = this.addressBody.getText();
+    String addressText = lastAddressBody.getText();
 
     //Compare data in the address box with expected data:
     try {
@@ -67,8 +57,8 @@ public class YourAddressesPage {
       Assert.assertTrue(addressText.contains(expectedPhone));
       System.out.println("✅All user address data is correct✅");
     } catch (AssertionError e) {
-      Assert.fail("Assertion error. Failed to assert that entered data is correct.");
-      System.err.println("Error message: " + e.getMessage());
+      Assert.fail("‼️Assertion error - some actual user address data do not match with the expected address data for tested field‼️");
+      System.err.println("Failed to assert that entered data is correct. More info on this error: " + e.getMessage());
     } finally {
       System.out.println("All assertions have been done");
     }

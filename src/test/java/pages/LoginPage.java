@@ -23,7 +23,9 @@ public class LoginPage {
   private WebElement signInButton;
 
   public void loginUser() {
+    this.emailInputInLoginForm.clear();
     this.emailInputInLoginForm.sendKeys("wojciechkowalski@gmail.com");
+    this.passwordInputInLoginForm.clear();
     this.passwordInputInLoginForm.sendKeys("Voyt@$$");
     this.signInButton.click();
   }

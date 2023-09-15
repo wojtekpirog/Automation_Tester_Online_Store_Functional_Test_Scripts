@@ -13,8 +13,7 @@ public class MyAccountPage {
   }
 
   @FindBy(xpath = "//*[@id=\"addresses-link\"]")
-  private WebElement AddressesButton;
-
+  private WebElement AddressesAnchor;
   @FindBy(xpath = "//*[@id=\"_desktop_logo\"]/a")
   private WebElement storeLogo;
 
@@ -23,6 +22,6 @@ public class MyAccountPage {
   }
 
   public void goToAddressCreationForm() {
-    this.AddressesButton.click();
+    this.AddressesAnchor.click();
   }
 }
