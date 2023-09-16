@@ -1,10 +1,7 @@
 package pages;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.junit.Assert;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.ashot.AShot;
@@ -27,17 +24,16 @@ public class OrderConfirmationPage {
   @FindBy(xpath = "//section[@id=\"content\"]")
   private WebElement orderDetails;
 
-  public void takeScreenshot(String pathWithFile) throws IOException {
-    //Convert web driver object to TakeScreenshot:
-//    TakesScreenshot screenshot = ((TakesScreenshot)this.browser);
-    //Call getScreenshotAs method to create image file:
-//    File srcImgFile = screenshot.getScreenshotAs(OutputType.FILE);
-    //Move image file to new destination:
-//    File destImgFile = new File(pathWithFile);
-    //Copy file destination:
-//    FileUtils.copyFile(srcImgFile, destImgFile);
+  public void takeScreenshot(String pathWithFile) {
     //Take a .png screenshot of a particular element of the page using Ashot API and save it to file "confirmation_screenshot.png"
-    Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(this.browser, orderDetails);
-    ImageIO.write(screenshot.getImage(), "png", new File(pathWithFile));
+    try {
+      Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(this.browser, orderDetails);
+      ImageIO.write(screenshot.getImage(), "png", new File(pathWithFile));
+      System.out.println("✅Screenshot has been taken and saved to " + pathWithFile);
+    } catch (NoSuchElementException e) {
+      Assert.fail("❌Failed to find element: \"orderDetails\" from \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+    } catch (IOException e) {
+      Assert.fail("‼️An error occurred while copying file. More information: " + e.getMessage());
+    }
   }
 }

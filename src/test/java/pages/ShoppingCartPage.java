@@ -1,5 +1,7 @@
 package pages;
 
+import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +18,10 @@ public class ShoppingCartPage {
   private WebElement proceedToCheckoutAnchor;
 
   public void proceedToCheckout() {
-    this.proceedToCheckoutAnchor.click();
+    try {
+      this.proceedToCheckoutAnchor.click();
+    } catch (NoSuchElementException e) {
+      Assert.fail("❌Failed to find an element: \"proceedToCheckoutAnchor\" from \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+    }
   }
 }

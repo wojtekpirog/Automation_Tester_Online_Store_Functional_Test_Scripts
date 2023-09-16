@@ -1,6 +1,7 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,12 +25,20 @@ public class YourAddressesPage {
   private WebElement successAlert;
 
   public void deleteAddress() {
-    deleteAddressAnchor.click();
+    try {
+      deleteAddressAnchor.click();
+    } catch (NoSuchElementException e) {
+      Assert.fail("❌Failed to find an element: \"deleteAddressAnchor\" from \"YourAddressesPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+    }
   }
 
   //Method to start creating a new address
   public void goToAddressCreationForm() {
-    createNewAddressAnchor.click();
+    try {
+      createNewAddressAnchor.click();
+    } catch (NoSuchElementException e) {
+      Assert.fail("❌Failed to find an element: \"createNewAddressAnchor\" from \"YourAddressesPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+    }
   }
 
   //Method to assert that address is not present after deletion
@@ -38,6 +47,8 @@ public class YourAddressesPage {
     try {
       Assert.assertTrue(successAlert.getText().contains("deleted"));
       System.out.println("✅Address has been deleted successfully.✅");
+    } catch (NoSuchElementException e) {
+      Assert.fail("❌Failed to find an element: \"successAlert\" from \"YourAddressesPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     } catch (AssertionError e) {
       Assert.fail("❌Address is still visible on the \"Your addresses\" page❌");
     }

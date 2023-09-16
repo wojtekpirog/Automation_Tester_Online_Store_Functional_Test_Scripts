@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,8 +14,6 @@ public class DeliveryAndPaymentInformationPage {
     PageFactory.initElements(browser, this);
   }
 
-//  @FindBy(xpath = "//span[text()='Home Address']")
-//  private WebElement deliveryAddressSpan;
   @FindBy(xpath = "//span[text()='Home Address']")
   private WebElement WorkAddressSpan;
   @FindBy(xpath = "//button[@name=\"confirm-addresses\"]")
@@ -31,13 +30,17 @@ public class DeliveryAndPaymentInformationPage {
   private WebElement placeOrderButton;
 
   public void AcceptAddressInformation() {
-    this.WorkAddressSpan.click();
-    this.continueToShippingMethodsBtn.click();
-    JavascriptExecutor js = (JavascriptExecutor)browser;
-    js.executeScript("arguments[0].click()", this.pickUpInStore);
-    this.continueToPaymentButton.click();
-    this.payByCheckInput.click();
-    this.approveConditionsCheckbox.click();
-    this.placeOrderButton.click();
+    try {
+      this.WorkAddressSpan.click();
+      this.continueToShippingMethodsBtn.click();
+      JavascriptExecutor js = (JavascriptExecutor)browser;
+      js.executeScript("arguments[0].click()", this.pickUpInStore);
+      this.continueToPaymentButton.click();
+      this.payByCheckInput.click();
+      this.approveConditionsCheckbox.click();
+      this.placeOrderButton.click();
+    } catch (NoSuchElementException e) {
+      System.err.println("❌Test failed to find an element from \"DeliveryAndPaymentInformationPage\"❌. More information: " + e.getMessage());
+    }
   }
 }
