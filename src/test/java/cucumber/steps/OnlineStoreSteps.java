@@ -37,8 +37,8 @@ public class OnlineStoreSteps {
     addressCreationForm.fillInFormWith(alias, address, city, zipcode, country, phone);
   }
 
-  @When("User places an order for a specific product")
-  public void placeAnOrder() {
+  @When("User places an order for {int} pieces of sweater of size {word}")
+  public void placeAnOrder(int quantity, String size) {
     MyAccountPage myAccountPage = new MyAccountPage(browser);
     myAccountPage.goToHomePage();
 
@@ -47,7 +47,7 @@ public class OnlineStoreSteps {
 
     ProductDetailsPage pdp = new ProductDetailsPage(browser);
     pdp.checkForDiscount();
-    pdp.addProductToCart();
+    pdp.addProductToCart(quantity, size);
 
     ShoppingCartPage shoppingCart = new ShoppingCartPage(browser);
     shoppingCart.proceedToCheckout();
