@@ -19,17 +19,9 @@ public class ShoppingCartPage {
   //Method to proceed to checkout page:
   public void proceedToCheckout() {
     try {
-      clickAnElement(proceedToCheckoutAnchor);
+      proceedToCheckoutAnchor.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Failed to find an element \"proceedToCheckoutAnchor\" from \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
-  }
-  //Method to click an element:
-  private void clickAnElement(WebElement element) {
-    element.click();
-  }
-  //Method to handle an exception (here: `NoSuchElementException`):
-  private void handleNoSuchElementException(NoSuchElementException e) {
-    Assert.fail("❌Failed to find an element from \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
   }
 }

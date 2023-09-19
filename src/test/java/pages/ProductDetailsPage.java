@@ -39,7 +39,7 @@ public class ProductDetailsPage {
         System.out.println("Discount info element with text \"" + discountInfo + "\" is displayed on the product details page. The discount for the product though is not 20%");
       }
     } catch (NoSuchElementException e) {
-      System.out.println("⚠️There is no discount info element on the product details page. Therefore the product is not at a discount⚠️");
+      System.out.println("ℹ️ There is no discount info element on the product details page. Therefore the product is not at a discount ℹ️");
     }
   }
 
@@ -53,35 +53,24 @@ public class ProductDetailsPage {
       try {
         Assert.assertTrue(validSizes.contains(size));
       } catch (AssertionError e) {
-        handleAssertionError("Sweater size " + size + " is incorrect. Available sizes of the product are: \"S\", \"M\", \"L\" and \"XL\".");
+        Assert.fail("⚠️Sweater size " + size + " is incorrect⚠️. ℹ️Available sizes of the product are: \"S\", \"M\", \"L\" and \"XL\".");
       }
       sizeDropdown.selectByVisibleText(size);
       //Check if value of variable `quantity` is greater than 0, else fail the test
       try {
         Assert.assertTrue(quantity > 0);
       } catch (AssertionError e) {
-        handleAssertionError("Value " + quantity + " is incorrect. Quantity of products must be greater than 0.");
+        Assert.fail("⚠️Value " + quantity + " is incorrect⚠️. ℹ️Quantity of products must be greater than 0.");
       }
       //Force JavaScript to change the "value" attribute of `this.quantityWantedInput` (input of type number)
       JavascriptExecutor jsExecutor = (JavascriptExecutor)browser;
       jsExecutor.executeScript("arguments[0].value=\"" + quantity + "\";", quantityWantedInput);
-      clickAnElement(addToCartButton);
+      addToCartButton.click();
       browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-      clickAnElement(proceedToCheckoutButton);
+      proceedToCheckoutButton.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Test failed to find a WebElement from \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
     }
   }
-  //Method to click an element:
-  private void clickAnElement(WebElement element) {
-    element.click();
-  }
-  //Method to handle an exception (here: `NoSuchElementException`):
-  private void handleNoSuchElementException(NoSuchElementException e) {
-    Assert.fail("❌Test failed to find WebElement from \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
-  }
-  //Method to handle an exception (here: `AssertionError`):
-  private void handleAssertionError(String errorMessage) {
-    Assert.fail(errorMessage);
-  }
+
 }

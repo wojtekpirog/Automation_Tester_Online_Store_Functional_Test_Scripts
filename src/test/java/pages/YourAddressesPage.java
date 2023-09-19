@@ -25,17 +25,17 @@ public class YourAddressesPage {
   //Method to delete an address:
   public void deleteAddress() {
     try {
-      clickAnElement(deleteAddressAnchor);
+      deleteAddressAnchor.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException("❌Failed to find an element \"deleteAddressAnchor\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage();
+      Assert.fail("❌Failed to find an element \"deleteAddressAnchor\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
   }
   //Method to start creating a new address by going to an address creation form:
   public void goToAddressCreationForm() {
     try {
-      clickAnElement(createNewAddressAnchor);
+      createNewAddressAnchor.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException("❌Failed to find an element \"createNewAddressAnchor\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      Assert.fail("❌Failed to find an element \"createNewAddressAnchor\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
   }
 
@@ -46,9 +46,9 @@ public class YourAddressesPage {
       Assert.assertTrue(successAlert.getText().contains("deleted"));
       System.out.println("✅Address has been deleted successfully.✅");
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException("❌Failed to find an element \"successAlert\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      Assert.fail("❌Failed to find an element \"successAlert\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     } catch (AssertionError e) {
-      handleAssertionError("‼️Address is still visible on the \"Your addresses\" page. More information: " + e.getMessage());
+      Assert.fail("‼️Address is still visible on the \"Your addresses\" page. More information: " + e.getMessage());
     }
   }
 
@@ -66,22 +66,10 @@ public class YourAddressesPage {
         Assert.assertTrue(addressText.contains(expectedPhone));
         System.out.println("✅All user address data is correct✅");
       } catch (AssertionError e) {
-        handleAssertionError("‼️Assertion error - test failed to assert that all actual user address data equal with the expected address data for tested field‼️. More information on this error: " + e.getMessage());
+        Assert.fail("‼️Assertion error - test failed to assert that all actual user address data equal with the expected address data for tested field‼️. More information on this error: " + e.getMessage());
       }
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException("❌Failed to find an element \"lastAddressBody\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      Assert.fail("❌Failed to find an element \"lastAddressBody\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
-  }
-  //Method to click an element:
-  private void clickAnElement(WebElement element) {
-    element.click();
-  }
-  //Method to handle an exception (here: `NoSuchElementException`):
-  private void handleNoSuchElementException(String noSuchElementExceptionMessage) {
-    Assert.fail(noSuchElementExceptionMessage);
-  }
-  //Method to handle an exception (here: `AssertionError`):
-  private void handleAssertionError(String assertionErrorMessage) {
-    Assert.fail(assertionErrorMessage);
   }
 }

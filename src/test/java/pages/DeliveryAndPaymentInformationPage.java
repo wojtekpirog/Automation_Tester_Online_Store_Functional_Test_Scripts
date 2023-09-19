@@ -32,24 +32,16 @@ public class DeliveryAndPaymentInformationPage {
 
   public void AcceptAddressInformation() {
     try {
-      clickElement(WorkAddressSpan);
-      clickElement(continueToShippingMethodsBtn);
+      WorkAddressSpan.click();
+      continueToShippingMethodsBtn.click();
       JavascriptExecutor js = (JavascriptExecutor)browser;
       js.executeScript("arguments[0].click()", pickUpInStore);
-      clickElement(continueToPaymentButton);
-      clickElement(payByCheckInput);
-      clickElement(approveConditionsCheckbox);
-      clickElement(placeOrderButton);
+      continueToPaymentButton.click();
+      payByCheckInput.click();
+      approveConditionsCheckbox.click();
+      placeOrderButton.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Test failed to find form control(s) from \"DeliveryAndPaymentInformationPage\"❌. More information: " + e.getMessage());
     }
-  }
-  //Method to click elements:
-  private void clickElement(WebElement element) {
-    element.click();
-  }
-  //Method to handle SuchElementException:
-  private void handleNoSuchElementException(NoSuchElementException e) {
-    Assert.fail("❌Test failed to find an element from \"DeliveryAndPaymentInformationPage\"❌. More information: " + e.getMessage());
   }
 }

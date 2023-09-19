@@ -22,25 +22,17 @@ public class MyAccountPage {
   //Method to direct user to the home page:
   public void goToHomePage() {
     try {
-      clickAnElement(storeLogo);
+      storeLogo.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Failed to find element \"storeLogo\" from \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
   }
   //Method to direct user to the address creation form:
   public void goToAddressCreationForm() {
     try {
-      clickAnElement(addressesAnchor);
+      addressesAnchor.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Failed to find element \"addressesAnchor\" from \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
-  }
-  //Method to click an element:
-  private void clickAnElement(WebElement element) {
-    element.click();
-  }
-  //Method to handle an exception (here: `NoSuchElementException`):
-  private void handleNoSuchElementException(NoSuchElementException e) {
-    Assert.fail("❌Failed to find element from \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
   }
 }

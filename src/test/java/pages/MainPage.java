@@ -22,25 +22,17 @@ public class MainPage {
   //Method to go to login page:
   public void goToLoginPage() {
     try {
-      clickElement(signInAnchor);
+      signInAnchor.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Failed to find an element \"signInAnchor\" from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
   }
   //Method to go to PDP (Product Details Page):
   public void openProductDetailsPage() {
     try {
-      clickElement(productSelectionAnchor);
+      productSelectionAnchor.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Failed to find an element \"productSelectionAnchor\" from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
-  }
-  //Method to click an element:
-  private void clickElement(WebElement element) {
-    element.click();
-  }
-  //Method to handle exception (here: `NoSuchElementException`):
-  private void handleNoSuchElementException(NoSuchElementException e) {
-    Assert.fail("❌Failed to find an element from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
   }
 }

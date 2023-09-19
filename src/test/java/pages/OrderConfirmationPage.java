@@ -31,17 +31,9 @@ public class OrderConfirmationPage {
       ImageIO.write(screenshot.getImage(), "png", new File(pathWithFile));
       System.out.println("✅Screenshot has been taken and saved to " + pathWithFile);
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Failed to find WebElement from \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     } catch (IOException e) {
-      handleIOException(e);
+      Assert.fail("‼️An error occurred while copying file. More information: " + e.getMessage());
     }
-  }
-  //Method to handle an exception (here: `NoSuchElementException`):
-  private void handleNoSuchElementException(NoSuchElementException e) {
-    Assert.fail("❌Failed to find WebElement from \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-  }
-  //Method to handle an exception (here: `IOException`):
-  private void handleIOException(IOException e) {
-    Assert.fail("‼️An error occurred while copying file. More information: " + e.getMessage());
   }
 }

@@ -25,19 +25,15 @@ public class LoginPage {
   public void loginUser() {
     try {
       clearAndType(emailInputInLoginForm, "wojciechkowalski@gmail.com");
-      clearAndType(passwordInputInLoginForm, "Voyt@$$");
+      clearAndType(passwordInputInLoginForm, "Passwd@$$");
       signInButton.click();
     } catch (NoSuchElementException e) {
-      handleNoSuchElementException(e);
+      Assert.fail("❌Test failed to find a user login form element from \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
   }
   //Method to clear form input and type in desired text:
   private void clearAndType(WebElement element, String text) {
     element.clear();
     element.sendKeys(text);
-  }
-  //Method to handle exception (here: `NoSuchElementException`):
-  private void handleNoSuchElementException(NoSuchElementException e) {
-    Assert.fail("❌Test failed to find an element from \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
   }
 }
