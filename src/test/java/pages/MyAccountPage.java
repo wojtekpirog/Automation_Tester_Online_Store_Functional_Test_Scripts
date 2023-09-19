@@ -9,29 +9,38 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MyAccountPage {
   private WebDriver browser;
-  public MyAccountPage(WebDriver browser) {
-    this.browser = browser;
-    PageFactory.initElements(browser, this);
-  }
-
   @FindBy(xpath = "//*[@id=\"addresses-link\"]")
   private WebElement addressesAnchor;
   @FindBy(xpath = "//*[@id=\"_desktop_logo\"]/a")
   private WebElement storeLogo;
 
-  public void goToHomePage() {
-    try {
-      this.storeLogo.click();
-    } catch (NoSuchElementException e) {
-      Assert.fail("❌Failed to find an element: \"storeLogo\" from \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-    }
+  public MyAccountPage(WebDriver browser) {
+    this.browser = browser;
+    PageFactory.initElements(browser, this);
   }
 
+  //Method to direct user to the home page:
+  public void goToHomePage() {
+    try {
+      clickAnElement(storeLogo);
+    } catch (NoSuchElementException e) {
+      handleNoSuchElementException(e);
+    }
+  }
+  //Method to direct user to the address creation form:
   public void goToAddressCreationForm() {
     try {
-      this.addressesAnchor.click();
+      clickAnElement(addressesAnchor);
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Failed to find element: \"addressesAnchor\" from \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      handleNoSuchElementException(e);
     }
+  }
+  //Method to click an element:
+  private void clickAnElement(WebElement element) {
+    element.click();
+  }
+  //Method to handle an exception (here: `NoSuchElementException`):
+  private void handleNoSuchElementException(NoSuchElementException e) {
+    Assert.fail("❌Failed to find element from \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
   }
 }

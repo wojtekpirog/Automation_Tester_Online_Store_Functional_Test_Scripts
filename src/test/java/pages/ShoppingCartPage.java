@@ -9,19 +9,27 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ShoppingCartPage {
   private WebDriver browser;
+  @FindBy(xpath = "//a[text()='Proceed to checkout']")
+  private WebElement proceedToCheckoutAnchor;
+
   public ShoppingCartPage(WebDriver browser) {
     this.browser = browser;
     PageFactory.initElements(browser, this);
   }
-
-  @FindBy(xpath = "//a[text()='Proceed to checkout']")
-  private WebElement proceedToCheckoutAnchor;
-
+  //Method to proceed to checkout page:
   public void proceedToCheckout() {
     try {
-      this.proceedToCheckoutAnchor.click();
+      clickAnElement(proceedToCheckoutAnchor);
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Failed to find an element: \"proceedToCheckoutAnchor\" from \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      handleNoSuchElementException(e);
     }
+  }
+  //Method to click an element:
+  private void clickAnElement(WebElement element) {
+    element.click();
+  }
+  //Method to handle an exception (here: `NoSuchElementException`):
+  private void handleNoSuchElementException(NoSuchElementException e) {
+    Assert.fail("❌Failed to find an element from \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
   }
 }

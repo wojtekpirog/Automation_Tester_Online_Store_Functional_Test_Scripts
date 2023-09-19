@@ -14,26 +14,34 @@ import java.io.IOException;
 
 public class OrderConfirmationPage {
   private WebDriver browser;
+  //Find the element with order confirmation and amount to take a screenshot:
+  @FindBy(xpath = "//section[@id=\"content\"]")
+  private WebElement orderDetails;
 
   public OrderConfirmationPage(WebDriver browser) {
     this.browser = browser;
     PageFactory.initElements(browser, this);
   }
 
-  //Find the element with order confirmation and amount to take a screenshot:
-  @FindBy(xpath = "//section[@id=\"content\"]")
-  private WebElement orderDetails;
-
+  //Method to take a screenshot which depicts order confirmation information with the order's amount:
   public void takeScreenshot(String pathWithFile) {
     //Take a .png screenshot of a particular element of the page using Ashot API and save it to file "confirmation_screenshot.png"
     try {
-      Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(this.browser, orderDetails);
+      Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(browser, orderDetails);
       ImageIO.write(screenshot.getImage(), "png", new File(pathWithFile));
       System.out.println("✅Screenshot has been taken and saved to " + pathWithFile);
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Failed to find element: \"orderDetails\" from \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      handleNoSuchElementException(e);
     } catch (IOException e) {
-      Assert.fail("‼️An error occurred while copying file. More information: " + e.getMessage());
+      handleIOException(e);
     }
+  }
+  //Method to handle an exception (here: `NoSuchElementException`):
+  private void handleNoSuchElementException(NoSuchElementException e) {
+    Assert.fail("❌Failed to find WebElement from \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+  }
+  //Method to handle an exception (here: `IOException`):
+  private void handleIOException(IOException e) {
+    Assert.fail("‼️An error occurred while copying file. More information: " + e.getMessage());
   }
 }

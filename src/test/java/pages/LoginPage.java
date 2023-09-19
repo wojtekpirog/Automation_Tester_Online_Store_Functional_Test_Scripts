@@ -9,12 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
   private WebDriver browser;
-
-  public LoginPage(WebDriver browser) {
-    this.browser = browser;
-    PageFactory.initElements(browser, this);
-  }
-
   @FindBy(xpath = "//*[@id=\"field-email\"]")
   private WebElement emailInputInLoginForm;
   @FindBy(xpath = "//*[@id=\"field-password\"]")
@@ -22,15 +16,28 @@ public class LoginPage {
   @FindBy(xpath = "//*[@id=\"submit-login\"]")
   private WebElement signInButton;
 
+  public LoginPage(WebDriver browser) {
+    this.browser = browser;
+    PageFactory.initElements(browser, this);
+  }
+
+  //Method to login user:
   public void loginUser() {
     try {
-      this.emailInputInLoginForm.clear();
-      this.emailInputInLoginForm.sendKeys("wojciechkowalski@gmail.com");
-      this.passwordInputInLoginForm.clear();
-      this.passwordInputInLoginForm.sendKeys("Voyt@$$");
-      this.signInButton.click();
+      clearAndType(emailInputInLoginForm, "wojciechkowalski@gmail.com");
+      clearAndType(passwordInputInLoginForm, "Voyt@$$");
+      signInButton.click();
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Test failed to find an element from \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      handleNoSuchElementException(e);
     }
+  }
+  //Method to clear form input and type in desired text:
+  private void clearAndType(WebElement element, String text) {
+    element.clear();
+    element.sendKeys(text);
+  }
+  //Method to handle exception (here: `NoSuchElementException`):
+  private void handleNoSuchElementException(NoSuchElementException e) {
+    Assert.fail("❌Test failed to find an element from \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
   }
 }

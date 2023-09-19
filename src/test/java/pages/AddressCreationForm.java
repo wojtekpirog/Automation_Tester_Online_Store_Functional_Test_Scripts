@@ -1,23 +1,15 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
+import org.testng.Assert;
 
 public class AddressCreationForm {
   private WebDriver browser;
-  public AddressCreationForm(WebDriver browser) {
-    this.browser = browser;
-    PageFactory.initElements(browser, this);
-  }
-
   @FindBy(xpath = "//input[@id=\"field-alias\"]")
   private WebElement aliasInput;
   @FindBy(xpath = "//input[@id=\"field-address1\"]")
@@ -33,25 +25,30 @@ public class AddressCreationForm {
   @FindBy(xpath = "//section[@id=\"content\"]//button")
   private WebElement saveButton;
 
+  public AddressCreationForm(WebDriver browser) {
+    this.browser = browser;
+    PageFactory.initElements(browser, this);
+  }
+
+  //Method to fill in a form:
   public void fillInFormWith(String alias, String address, String city, String zipcode, String country, String phone) {
     try {
-      this.aliasInput.clear();
-      this.aliasInput.sendKeys(alias);
-      this.addressInput.clear();
-      this.addressInput.sendKeys(address);
-      this.cityInput.clear();
-      this.cityInput.sendKeys(city);
-      this.zipcodeInput.clear();
-      this.zipcodeInput.sendKeys(zipcode);
-      this.countryDropdown.click();
-      Select countrySelect = new Select(this.countryDropdown);
+      clearAndType(aliasInput, alias);
+      clearAndType(addressInput, address);
+      clearAndType(cityInput, city);
+      clearAndType(zipcodeInput, zipcode);
+      countryDropdown.click();
+      Select countrySelect = new Select(countryDropdown);
       countrySelect.selectByVisibleText(country);
-      this.phoneInput.clear();
-      this.phoneInput.sendKeys(phone);
-      this.saveButton.click();
-      System.out.println("✅All inputs were found and filled correctly✅");
+      clearAndType(phoneInput, phone);
+      saveButton.click();
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Test failed to find an element from \"AddressCreationForm\". Make sure your selector is correct❌ More information: " + e.getMessage());
+      Assert.fail("❌Failed to find form element(s) from \"AddressCreationForm\"❌. More information: " + e.getMessage());
     }
+  }
+  //Method to clear form input and type in desired text:
+  private void clearAndType(WebElement element, String text) {
+    element.clear();
+    element.sendKeys(text);
   }
 }

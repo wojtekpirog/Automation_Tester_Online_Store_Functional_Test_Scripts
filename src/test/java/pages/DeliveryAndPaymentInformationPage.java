@@ -6,14 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class DeliveryAndPaymentInformationPage {
   private WebDriver browser;
-  public DeliveryAndPaymentInformationPage(WebDriver browser) {
-    this.browser = browser;
-    PageFactory.initElements(browser, this);
-  }
-
   @FindBy(xpath = "//span[text()='Home Address']")
   private WebElement WorkAddressSpan;
   @FindBy(xpath = "//button[@name=\"confirm-addresses\"]")
@@ -29,18 +25,31 @@ public class DeliveryAndPaymentInformationPage {
   @FindBy(xpath = "//*[@id=\"payment-confirmation\"]/div[1]/button")
   private WebElement placeOrderButton;
 
+  public DeliveryAndPaymentInformationPage(WebDriver browser) {
+    this.browser = browser;
+    PageFactory.initElements(browser, this);
+  }
+
   public void AcceptAddressInformation() {
     try {
-      this.WorkAddressSpan.click();
-      this.continueToShippingMethodsBtn.click();
+      clickElement(WorkAddressSpan);
+      clickElement(continueToShippingMethodsBtn);
       JavascriptExecutor js = (JavascriptExecutor)browser;
-      js.executeScript("arguments[0].click()", this.pickUpInStore);
-      this.continueToPaymentButton.click();
-      this.payByCheckInput.click();
-      this.approveConditionsCheckbox.click();
-      this.placeOrderButton.click();
+      js.executeScript("arguments[0].click()", pickUpInStore);
+      clickElement(continueToPaymentButton);
+      clickElement(payByCheckInput);
+      clickElement(approveConditionsCheckbox);
+      clickElement(placeOrderButton);
     } catch (NoSuchElementException e) {
-      System.err.println("❌Test failed to find an element from \"DeliveryAndPaymentInformationPage\"❌. More information: " + e.getMessage());
+      handleNoSuchElementException(e);
     }
+  }
+  //Method to click elements:
+  private void clickElement(WebElement element) {
+    element.click();
+  }
+  //Method to handle SuchElementException:
+  private void handleNoSuchElementException(NoSuchElementException e) {
+    Assert.fail("❌Test failed to find an element from \"DeliveryAndPaymentInformationPage\"❌. More information: " + e.getMessage());
   }
 }
