@@ -28,9 +28,9 @@ public class LoginPage {
       clearAndType(emailInputInLoginForm, "wojciechkowalski@gmail.com");
       clearAndType(passwordInputInLoginForm, "Voyt@$$");
       signInButton.click();
-      log.info("ℹ️Login form has been filled with user name and password and submitted.ℹ️");
+      log.info("ℹ️Login form inside Page Object \"LoginPage\" was submitted with username and password.ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Test failed to find a user login form element from \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      log.fatal("❌Test failed to find an element of login form inside \"LoginPage\". Make sure selectors for \"emailInputInLoginForm\" and \"passwordInputInLoginForm\" are correct.❌ More information: " + e.getMessage());
     }
   }
   //Method to clear form input and type in desired text:

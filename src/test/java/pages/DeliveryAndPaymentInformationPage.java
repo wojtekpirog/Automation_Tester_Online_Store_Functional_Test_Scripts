@@ -41,9 +41,9 @@ public class DeliveryAndPaymentInformationPage {
       payByCheckInput.click();
       approveConditionsCheckbox.click();
       placeOrderButton.click();
-      log.info("ℹ️Address and delivery & payment details have been selected.ℹ️");
+      log.info("ℹ️Details on user address, delivery & payment methods were selected in Page Object \"DeliveryAndPaymentInformationPage\".ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Test failed to find form control(s) from \"DeliveryAndPaymentInformationPage\"❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find form control(s) inside Page Object \"DeliveryAndPaymentInformationPage\"❌. Please check the selectors you defined for WebElements in this Page Object. More information: " + e.getMessage());
     }
   }
 }

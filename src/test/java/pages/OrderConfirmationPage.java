@@ -30,11 +30,11 @@ public class OrderConfirmationPage {
     try {
       Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(browser, orderDetails);
       ImageIO.write(screenshot.getImage(), "png", new File(pathWithFile));
-      log.info("ℹ️Screenshot has been taken and saved to " + pathWithFile + ".ℹ️");
+      log.info("ℹ️Screenshot showing order details was taken and saved to " + pathWithFile + ".ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find WebElement \"orderDetails\" from \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      log.fatal("❌Failed to find WebElement \"orderDetails\" inside Page Object \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     } catch (IOException e) {
-      log.error("‼️An error occurred while copying file. More information: " + e.getMessage());
+      log.error("‼️An error occurred while copying the file. More information: " + e.getMessage());
     }
   }
 }

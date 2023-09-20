@@ -28,9 +28,9 @@ public class YourAddressesPage {
   public void deleteAddress() {
     try {
       deleteAddressAnchor.click();
-      log.info("ℹ️The \"Delete\" anchor has been clicked.ℹ️");
+      log.info("ℹ️The \"Delete\" anchor inside Page Object \"YourAddressesPage\" was clicked. Waiting for deletion confirmation...ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find an element \"deleteAddressAnchor\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find an element \"deleteAddressAnchor\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
   }
   //Method to start creating a new address by going to an address creation form:
@@ -39,7 +39,7 @@ public class YourAddressesPage {
       createNewAddressAnchor.click();
       log.info("ℹ️User has been directed to the address creation form.ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find an element \"createNewAddressAnchor\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"createNewAddressAnchor\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
   }
 
@@ -50,7 +50,7 @@ public class YourAddressesPage {
       Assert.assertTrue(successAlert.getText().contains("deleted"));
       log.info("✅Address has been deleted successfully.✅");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find an element \"successAlert\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"successAlert\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     } catch (AssertionError e) {
       log.error("‼️Address is still visible on the \"Your addresses\" page. Make sure to define an accurate selector for WebElement \"successAlert\". More information: " + e.getMessage());
     }
@@ -73,7 +73,7 @@ public class YourAddressesPage {
         log.error("‼️Assertion error - test failed to assert that all actual user address data equal with the expected address data for tested field‼️. More information on this error: " + e.getMessage());
       }
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find an element \"lastAddressBody\" from \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
   }
 }

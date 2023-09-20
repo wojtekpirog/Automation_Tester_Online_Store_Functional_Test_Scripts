@@ -43,9 +43,9 @@ public class AddressCreationForm {
       countrySelect.selectByVisibleText(country);
       clearAndType(phoneInput, phone);
       saveButton.click();
-      log.info("ℹ️Address creation form has been filled and saved.ℹ️");
+      log.info("ℹ️Form in Page Object \"AddressCreationForm\" was filled and saved.ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find a form element from \"AddressCreationForm\"❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find an element inside Page Object \"AddressCreationForm\"❌. Please check the selector you defined for form elements. More information: " + e.getMessage());
     }
   }
   //Method to clear form input and type in desired text:

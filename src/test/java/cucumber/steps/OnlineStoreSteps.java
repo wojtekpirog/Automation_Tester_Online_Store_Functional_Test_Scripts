@@ -24,7 +24,7 @@ public class OnlineStoreSteps {
     log.info("ℹ️Browser cookies have been deleted.ℹ️");
     log.info("ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️");
     browser.get("https://mystore-testlab.coderslab.pl/index.php?");
-    log.info("ℹ️Page \"https://mystore-testlab.coderslab.pl/index.php?\" has been opened.ℹ️");
+    log.info("ℹ️Main page \"https://mystore-testlab.coderslab.pl/index.php?\" has been opened.ℹ️");
 
     MainPage mainPage = new MainPage(browser);
     mainPage.goToLoginPage();

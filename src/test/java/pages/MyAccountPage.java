@@ -24,9 +24,9 @@ public class MyAccountPage {
   public void goToHomePage() {
     try {
       storeLogo.click();
-      log.info("ℹ️User has been directed to the home page.ℹ️");
+      log.info("ℹ️User clicked on WebElement \"storeLogo\" and was directed to Page Object \"MainPage\".ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find element \"storeLogo\" from \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"storeLogo\" inside Page Object \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
   }
   //Method to direct user to the address creation form:
@@ -35,7 +35,7 @@ public class MyAccountPage {
       addressesAnchor.click();
       log.info("ℹ️User has been directed to the address creation form.ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find element \"addressesAnchor\" from \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
   }
 }

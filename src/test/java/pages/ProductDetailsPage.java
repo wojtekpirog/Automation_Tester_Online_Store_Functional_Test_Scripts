@@ -36,12 +36,12 @@ public class ProductDetailsPage {
     try {
       discountInfo = productFlag.getText();
       if (discountInfo.contains("20%")) {
-        log.info("ℹ️Discount info element with text \"" + discountInfo + "\" is displayed on the product details page. The discount for the product is 20%.ℹ️");
+        log.info("ℹ️Discount info element with text \"" + discountInfo + "\" inside Page Object \"ProductDetailsPage\" is displayed. The discount for the product is 20%.ℹ️");
       } else {
-        log.info("ℹ️Discount info element with text \"" + discountInfo + "\" is displayed on the product details page. The discount for the product though is not 20%.ℹ️");
+        log.info("ℹ️Discount info element with text \"" + discountInfo + "\" inside Page Object \"ProductDetailsPage\" is displayed. The discount for the product though is different that 20%.ℹ️");
       }
     } catch (NoSuchElementException e) {
-      log.info("ℹ️There is no discount info element on the product details page. Therefore the product is not at a discount ℹ️");
+      log.info("ℹ️There is no discount info element inside Page Object \"ProductDetailsPage\". The product is not at a discount.ℹ️");
     }
   }
 
@@ -74,7 +74,7 @@ public class ProductDetailsPage {
       log.info("ℹ️" + quantity + " pieces of product have been added to cart.ℹ️");
       proceedToCheckoutButton.click();
     } catch (NoSuchElementException e) {
-      log.fatal("❌Test failed to find WebElement \"sizeSelect\" from \"ProductDetailsPage\". The default size option might have been selected. Please check the selector you defined for the element❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"sizeSelect\" inside Page Object \"ProductDetailsPage\". The default size option might have been selected. Please check the selector you defined for WebElement \"sizeSelect\"❌. More information: " + e.getMessage());
     }
   }
 

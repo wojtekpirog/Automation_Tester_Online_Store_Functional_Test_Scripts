@@ -10,7 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 public class MainPage {
   private static final Logger log = Logger.getLogger(MainPage.class);
   private WebDriver browser;
-  @FindBy(xpath = "//a/span[text()='Sign in']")
+  //Should be: //a/span[text()='Sign in']
+  @FindBy(xpath = "//a/span[text()='Sign in to user account']")
   private WebElement signInAnchor;
   @FindBy(xpath = "//a[text()='Hummingbird printed sweater']")
   private WebElement productSelectionAnchor;
@@ -24,7 +25,7 @@ public class MainPage {
   public void goToLoginPage() {
     try {
       signInAnchor.click();
-      log.info("ℹ️User has been directed to the login page.ℹ️");
+      log.info("ℹ️User clicked on WebElement \"signInAnchor\" and was directed to Page Object \"Login Page\".ℹ️");
     } catch (NoSuchElementException e) {
       log.fatal("❌Failed to find an element \"signInAnchor\" from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
       throw e;
@@ -34,7 +35,7 @@ public class MainPage {
   public void openProductDetailsPage() {
     try {
       productSelectionAnchor.click();
-      log.info("ℹ️Product Details Page has been opened.ℹ️");
+      log.info("ℹ️User selected \"Hummingbird Printed Sweater\" and was directed to Page Object \"Product Details Page\".ℹ️");
     } catch (NoSuchElementException e) {
       log.fatal("❌Failed to find an element \"productSelectionAnchor\" from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }

@@ -21,9 +21,9 @@ public class ShoppingCartPage {
   public void proceedToCheckout() {
     try {
       proceedToCheckoutAnchor.click();
-      log.info("ℹ️User has been directed to the checkout page.ℹ️");
+      log.info("ℹ️User clicked WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ShoppingCartPage\" and was directed to PageObject \"DeliveryAndPaymentInformationPage\".ℹ️");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find an element \"proceedToCheckoutAnchor\" from \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      log.fatal("❌Failed to find an element \"proceedToCheckoutAnchor\" inside Page Object \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
   }
 }
