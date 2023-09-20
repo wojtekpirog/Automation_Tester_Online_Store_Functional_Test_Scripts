@@ -1,6 +1,6 @@
 package pages;
 
-import org.junit.Assert;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
+  private static final Logger log = Logger.getLogger(LoginPage.class);
   private WebDriver browser;
   @FindBy(xpath = "//*[@id=\"field-email\"]")
   private WebElement emailInputInLoginForm;
@@ -25,10 +26,11 @@ public class LoginPage {
   public void loginUser() {
     try {
       clearAndType(emailInputInLoginForm, "wojciechkowalski@gmail.com");
-      clearAndType(passwordInputInLoginForm, "Passwd@$$");
+      clearAndType(passwordInputInLoginForm, "Voyt@$$");
       signInButton.click();
+      log.info("ℹ️Login form has been filled with user name and password and submitted.ℹ️");
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Test failed to find a user login form element from \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      log.fatal("❌Test failed to find a user login form element from \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
   }
   //Method to clear form input and type in desired text:

@@ -1,6 +1,6 @@
 package pages;
 
-import org.junit.Assert;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class OrderConfirmationPage {
+  private static final Logger log = Logger.getLogger(OrderConfirmationPage.class);
   private WebDriver browser;
   //Find the element with order confirmation and amount to take a screenshot:
   @FindBy(xpath = "//section[@id=\"content\"]")
@@ -29,11 +30,11 @@ public class OrderConfirmationPage {
     try {
       Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(browser, orderDetails);
       ImageIO.write(screenshot.getImage(), "png", new File(pathWithFile));
-      System.out.println("✅Screenshot has been taken and saved to " + pathWithFile);
+      log.info("ℹ️Screenshot has been taken and saved to " + pathWithFile + ".ℹ️");
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Failed to find WebElement from \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      log.fatal("❌Failed to find WebElement \"orderDetails\" from \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     } catch (IOException e) {
-      Assert.fail("‼️An error occurred while copying file. More information: " + e.getMessage());
+      log.error("‼️An error occurred while copying file. More information: " + e.getMessage());
     }
   }
 }

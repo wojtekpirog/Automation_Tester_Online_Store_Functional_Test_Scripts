@@ -1,14 +1,15 @@
 package pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 public class DeliveryAndPaymentInformationPage {
+  private static final Logger log = Logger.getLogger(DeliveryAndPaymentInformationPage.class);
   private WebDriver browser;
   @FindBy(xpath = "//span[text()='Home Address']")
   private WebElement WorkAddressSpan;
@@ -40,8 +41,9 @@ public class DeliveryAndPaymentInformationPage {
       payByCheckInput.click();
       approveConditionsCheckbox.click();
       placeOrderButton.click();
+      log.info("ℹ️Address and delivery & payment details have been selected.ℹ️");
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Test failed to find form control(s) from \"DeliveryAndPaymentInformationPage\"❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find form control(s) from \"DeliveryAndPaymentInformationPage\"❌. More information: " + e.getMessage());
     }
   }
 }

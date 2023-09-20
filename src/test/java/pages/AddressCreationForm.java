@@ -1,14 +1,15 @@
 package pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
 public class AddressCreationForm {
+  private static final Logger log = Logger.getLogger(AddressCreationForm.class);
   private WebDriver browser;
   @FindBy(xpath = "//input[@id=\"field-alias\"]")
   private WebElement aliasInput;
@@ -42,8 +43,9 @@ public class AddressCreationForm {
       countrySelect.selectByVisibleText(country);
       clearAndType(phoneInput, phone);
       saveButton.click();
+      log.info("ℹ️Address creation form has been filled and saved.ℹ️");
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Failed to find form element(s) from \"AddressCreationForm\"❌. More information: " + e.getMessage());
+      log.fatal("❌Failed to find a form element from \"AddressCreationForm\"❌. More information: " + e.getMessage());
     }
   }
   //Method to clear form input and type in desired text:

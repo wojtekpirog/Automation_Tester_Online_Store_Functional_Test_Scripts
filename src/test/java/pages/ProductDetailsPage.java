@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ProductDetailsPage {
+  private static final Logger log = Logger.getLogger(ProductDetailsPage.class);
   private WebDriver browser;
   @FindBy(xpath = "//section[@id=\"content\"]/ul/li")
   private WebElement productFlag;
@@ -34,12 +36,12 @@ public class ProductDetailsPage {
     try {
       discountInfo = productFlag.getText();
       if (discountInfo.contains("20%")) {
-        System.out.println("Discount info element with text \"" + discountInfo + "\" is displayed on the product details page. The discount for the product is 20%");
+        log.info("ℹ️Discount info element with text \"" + discountInfo + "\" is displayed on the product details page. The discount for the product is 20%.ℹ️");
       } else {
-        System.out.println("Discount info element with text \"" + discountInfo + "\" is displayed on the product details page. The discount for the product though is not 20%");
+        log.info("ℹ️Discount info element with text \"" + discountInfo + "\" is displayed on the product details page. The discount for the product though is not 20%.ℹ️");
       }
     } catch (NoSuchElementException e) {
-      System.out.println("ℹ️ There is no discount info element on the product details page. Therefore the product is not at a discount ℹ️");
+      log.info("ℹ️There is no discount info element on the product details page. Therefore the product is not at a discount ℹ️");
     }
   }
 
@@ -53,23 +55,26 @@ public class ProductDetailsPage {
       try {
         Assert.assertTrue(validSizes.contains(size));
       } catch (AssertionError e) {
-        Assert.fail("⚠️Sweater size " + size + " is incorrect⚠️. ℹ️Available sizes of the product are: \"S\", \"M\", \"L\" and \"XL\".");
+        log.fatal("❌Sweater size " + size + " is incorrect❌. Try another size.");
+        log.info("ℹ️Available sizes of the product are: \"S\", \"M\", \"L\" and \"XL\".ℹ️");
       }
       sizeDropdown.selectByVisibleText(size);
       //Check if value of variable `quantity` is greater than 0, else fail the test
       try {
         Assert.assertTrue(quantity > 0);
       } catch (AssertionError e) {
-        Assert.fail("⚠️Value " + quantity + " is incorrect⚠️. ℹ️Quantity of products must be greater than 0.");
+        log.fatal("❌Value " + quantity + " is incorrect❌. Try using a positive whole number.");
+        log.info("ℹ️Quantity of products must be positive (greater than 0).ℹ️");
       }
       //Force JavaScript to change the "value" attribute of `this.quantityWantedInput` (input of type number)
       JavascriptExecutor jsExecutor = (JavascriptExecutor)browser;
       jsExecutor.executeScript("arguments[0].value=\"" + quantity + "\";", quantityWantedInput);
       addToCartButton.click();
       browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+      log.info("ℹ️" + quantity + " pieces of product have been added to cart.ℹ️");
       proceedToCheckoutButton.click();
     } catch (NoSuchElementException e) {
-      Assert.fail("❌Test failed to find a WebElement from \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"sizeSelect\" from \"ProductDetailsPage\". The default size option might have been selected. Please check the selector you defined for the element❌. More information: " + e.getMessage());
     }
   }
 

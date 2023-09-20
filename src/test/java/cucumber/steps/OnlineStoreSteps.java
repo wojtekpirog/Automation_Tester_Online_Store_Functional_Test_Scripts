@@ -4,19 +4,27 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
 public class OnlineStoreSteps {
+  private static final Logger log = Logger.getLogger(OnlineStoreSteps.class);
   private WebDriver browser;
 
   @Given("User is logged in to their homepage")
   public void LogInToUserAccount() {
     System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
     browser = new ChromeDriver();
+    log.info("ℹ️Chrome browser has been opened.ℹ️");
     browser.manage().window().maximize();
+    log.info("ℹ️Browser window has been maximized.ℹ️");
+    browser.manage().deleteAllCookies();
+    log.info("ℹ️Browser cookies have been deleted.ℹ️");
+    log.info("ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️");
     browser.get("https://mystore-testlab.coderslab.pl/index.php?");
+    log.info("ℹ️Page \"https://mystore-testlab.coderslab.pl/index.php?\" has been opened.ℹ️");
 
     MainPage mainPage = new MainPage(browser);
     mainPage.goToLoginPage();

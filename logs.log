@@ -1,0 +1,27 @@
+2023-09-20 20:54:00 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-20 20:54:00 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-20 20:54:00 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-20 20:54:00 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-20 20:54:01 INFO  OnlineStoreSteps:27 - ℹ️Page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-20 20:54:02 INFO  MainPage:27 - ℹ️User has been directed to the login page.ℹ️
+2023-09-20 20:54:03 INFO  LoginPage:31 - ℹ️Login form has been filled with user name and password and submitted.ℹ️
+2023-09-20 20:54:03 INFO  MyAccountPage:27 - ℹ️User has been directed to the home page.ℹ️
+2023-09-20 20:54:04 INFO  MainPage:37 - ℹ️Product Details Page has been opened.ℹ️
+2023-09-20 20:54:04 INFO  ProductDetailsPage:39 - ℹ️Discount info element with text "-20%" is displayed on the product details page. The discount for the product is 20%.ℹ️
+2023-09-20 20:54:04 INFO  ProductDetailsPage:74 - ℹ️5 pieces of product have been added to cart.ℹ️
+2023-09-20 20:54:05 INFO  ShoppingCartPage:24 - ℹ️User has been directed to the checkout page.ℹ️
+2023-09-20 20:54:08 INFO  DeliveryAndPaymentInformationPage:44 - ℹ️Address and delivery & payment details have been selected.ℹ️
+2023-09-20 20:54:10 INFO  OrderConfirmationPage:33 - ℹ️Screenshot has been taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.ℹ️
+2023-09-20 20:54:11 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-20 20:54:11 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-20 20:54:11 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-20 20:54:11 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-20 20:54:13 INFO  OnlineStoreSteps:27 - ℹ️Page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-20 20:54:13 INFO  MainPage:27 - ℹ️User has been directed to the login page.ℹ️
+2023-09-20 20:54:14 INFO  LoginPage:31 - ℹ️Login form has been filled with user name and password and submitted.ℹ️
+2023-09-20 20:54:14 INFO  MyAccountPage:36 - ℹ️User has been directed to the address creation form.ℹ️
+2023-09-20 20:54:14 INFO  YourAddressesPage:40 - ℹ️User has been directed to the address creation form.ℹ️
+2023-09-20 20:54:15 INFO  AddressCreationForm:46 - ℹ️Address creation form has been filled and saved.ℹ️
+2023-09-20 20:54:15 INFO  YourAddressesPage:71 - ✅All user address data is correct✅
+2023-09-20 20:54:15 INFO  YourAddressesPage:31 - ℹ️The "Delete" anchor has been clicked.ℹ️
+2023-09-20 20:54:15 INFO  YourAddressesPage:51 - ✅Address has been deleted successfully.✅
