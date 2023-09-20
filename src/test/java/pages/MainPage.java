@@ -10,8 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class MainPage {
   private static final Logger log = Logger.getLogger(MainPage.class);
   private WebDriver browser;
-  //Should be: //a/span[text()='Sign in']
-  @FindBy(xpath = "//a/span[text()='Sign in to user account']")
+  @FindBy(xpath = "//a/span[text()='Sign in']")
   private WebElement signInAnchor;
   @FindBy(xpath = "//a[text()='Hummingbird printed sweater']")
   private WebElement productSelectionAnchor;

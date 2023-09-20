@@ -12,7 +12,7 @@ public class DeliveryAndPaymentInformationPage {
   private static final Logger log = Logger.getLogger(DeliveryAndPaymentInformationPage.class);
   private WebDriver browser;
   @FindBy(xpath = "//span[text()='Home Address']")
-  private WebElement WorkAddressSpan;
+  private WebElement workAddressSpan;
   @FindBy(xpath = "//button[@name=\"confirm-addresses\"]")
   private WebElement continueToShippingMethodsBtn;
   @FindBy(xpath = "//form/div/div[1]/div[1]/div/span/input")
@@ -33,7 +33,7 @@ public class DeliveryAndPaymentInformationPage {
 
   public void AcceptAddressInformation() {
     try {
-      WorkAddressSpan.click();
+      workAddressSpan.click();
       continueToShippingMethodsBtn.click();
       JavascriptExecutor js = (JavascriptExecutor)browser;
       js.executeScript("arguments[0].click()", pickUpInStore);
