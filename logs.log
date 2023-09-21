@@ -1,27 +1,27 @@
-2023-09-21 21:41:11 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
-2023-09-21 21:41:11 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
-2023-09-21 21:41:11 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
-2023-09-21 21:41:11 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
-2023-09-21 21:41:17 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
-2023-09-21 21:41:18 INFO  MainPage:27 - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
-2023-09-21 21:41:19 INFO  LoginPage:31 - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
-2023-09-21 21:41:19 INFO  MyAccountPage:27 - ℹ️User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".ℹ️
-2023-09-21 21:41:20 INFO  MainPage:37 - ℹ️User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".ℹ️
-2023-09-21 21:41:20 INFO  ProductDetailsPage:44 - ℹ️Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.ℹ️
-2023-09-21 21:41:21 INFO  ProductDetailsPage:82 - ℹ️5 pieces of product have been added to cart.ℹ️
-2023-09-21 21:41:22 INFO  ShoppingCartPage:24 - ℹ️User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".ℹ️
-2023-09-21 21:41:27 INFO  DeliveryAndPaymentInformationPage:44 - ℹ️Details on user address, delivery & payment methods were selected in Page Object "DeliveryAndPaymentInformationPage".ℹ️
-2023-09-21 21:41:30 INFO  OrderConfirmationPage:33 - ℹ️Screenshot showing order details was taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.ℹ️
-2023-09-21 21:41:30 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
-2023-09-21 21:41:30 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
-2023-09-21 21:41:30 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
-2023-09-21 21:41:30 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
-2023-09-21 21:41:34 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
-2023-09-21 21:41:34 INFO  MainPage:27 - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
-2023-09-21 21:41:35 INFO  LoginPage:31 - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
-2023-09-21 21:41:35 INFO  MyAccountPage:36 - ℹ️User clicked on WebElement "addressesAnchor" inside Page Object "MyAccountPage" was directed to Page Object "YourAddressesPage".ℹ️
-2023-09-21 21:41:36 INFO  YourAddressesPage:40 - ℹ️User clicked WebElement "createNewAddressAnchor" inside Page Object "YourAddressesPage" and was directed to Page Object "AddressCreationForm".ℹ️
-2023-09-21 21:41:36 INFO  AddressCreationForm:46 - ℹ️Form in Page Object "AddressCreationForm" was filled with data from scenario and submitted.ℹ️
-2023-09-21 21:41:36 INFO  YourAddressesPage:71 - ✅All entries regarding user address information are verified and correct✅
-2023-09-21 21:41:38 INFO  YourAddressesPage:31 - ℹ️The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...ℹ️
-2023-09-21 21:41:38 INFO  YourAddressesPage:51 - ✅Address has been deleted successfully.✅
+2023-09-21 22:12:54 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-21 22:12:54 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-21 22:12:54 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-21 22:12:54 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-21 22:13:18 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-21 22:13:19 INFO  MainPage:27 - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
+2023-09-21 22:13:20 INFO  LoginPage:31 - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
+2023-09-21 22:13:20 INFO  MyAccountPage:27 - ℹ️User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".ℹ️
+2023-09-21 22:13:21 INFO  MainPage:37 - ℹ️User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".ℹ️
+2023-09-21 22:13:21 INFO  ProductDetailsPage:44 - ℹ️Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.ℹ️
+2023-09-21 22:13:21 INFO  ProductDetailsPage:82 - ℹ️5 pieces of product have been added to cart.ℹ️
+2023-09-21 22:13:22 INFO  ShoppingCartPage:24 - ℹ️User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".ℹ️
+2023-09-21 22:13:24 INFO  DeliveryAndPaymentInformationPage:44 - ℹ️Details on user address, delivery & payment methods were selected in Page Object "DeliveryAndPaymentInformationPage".ℹ️
+2023-09-21 22:13:26 INFO  OrderConfirmationPage:33 - ℹ️Screenshot showing order details was taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.ℹ️
+2023-09-21 22:13:27 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-21 22:13:27 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-21 22:13:27 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-21 22:13:27 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-21 22:13:29 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-21 22:13:50 INFO  MainPage:27 - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
+2023-09-21 22:13:51 INFO  LoginPage:31 - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
+2023-09-21 22:13:51 INFO  MyAccountPage:36 - ℹ️User clicked on WebElement "addressesAnchor" inside Page Object "MyAccountPage" was directed to Page Object "YourAddressesPage".ℹ️
+2023-09-21 22:13:52 INFO  YourAddressesPage:40 - ℹ️User clicked WebElement "createNewAddressAnchor" inside Page Object "YourAddressesPage" and was directed to Page Object "AddressCreationForm".ℹ️
+2023-09-21 22:13:52 INFO  AddressCreationForm:46 - ℹ️Form in Page Object "AddressCreationForm" was filled with data from scenario and submitted.ℹ️
+2023-09-21 22:13:52 INFO  YourAddressesPage:71 - ✅All entries regarding user address information are verified and correct✅
+2023-09-21 22:13:53 INFO  YourAddressesPage:31 - ℹ️The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...ℹ️
+2023-09-21 22:13:53 INFO  YourAddressesPage:51 - ✅Address has been deleted successfully.✅
