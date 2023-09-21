@@ -37,7 +37,7 @@ public class YourAddressesPage {
   public void goToAddressCreationForm() {
     try {
       createNewAddressAnchor.click();
-      log.info("ℹ️User has been directed to the address creation form.ℹ️");
+      log.info("ℹ️User clicked WebElement \"createNewAddressAnchor\" inside Page Object \"YourAddressesPage\" and was directed to Page Object \"AddressCreationForm\".ℹ️");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"createNewAddressAnchor\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
@@ -52,7 +52,7 @@ public class YourAddressesPage {
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"successAlert\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     } catch (AssertionError e) {
-      log.error("‼️Address is still visible on the \"Your addresses\" page. Make sure to define an accurate selector for WebElement \"successAlert\". More information: " + e.getMessage());
+      log.error("‼️Address is still visible on the \"Your addresses\" page. Make sure you defined an accurate selector for WebElement \"successAlert\". More information: " + e.getMessage());
     }
   }
 
@@ -68,7 +68,7 @@ public class YourAddressesPage {
         Assert.assertTrue(addressText.contains(expectedZipcode));
         Assert.assertTrue(addressText.contains(expectedCountry));
         Assert.assertTrue(addressText.contains(expectedPhone));
-        log.info("✅All user address data is correct✅");
+        log.info("✅All entries regarding user address information are verified and correct✅");
       } catch (AssertionError e) {
         log.error("‼️Assertion error - test failed to assert that all actual user address data equal with the expected address data for tested field‼️. More information on this error: " + e.getMessage());
       }

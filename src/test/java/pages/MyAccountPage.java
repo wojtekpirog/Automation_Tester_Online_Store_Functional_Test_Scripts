@@ -33,7 +33,7 @@ public class MyAccountPage {
   public void goToAddressCreationForm() {
     try {
       addressesAnchor.click();
-      log.info("ℹ️User has been directed to the address creation form.ℹ️");
+      log.info("ℹ️User clicked on WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\" was directed to Page Object \"YourAddressesPage\".ℹ️");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
