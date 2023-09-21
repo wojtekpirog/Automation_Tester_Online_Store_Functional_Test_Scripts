@@ -43,7 +43,7 @@ public class AddressCreationForm {
       countrySelect.selectByVisibleText(country);
       clearAndType(phoneInput, phone);
       saveButton.click();
-      log.info("ℹ️Form in Page Object \"AddressCreationForm\" was filled and saved.ℹ️");
+      log.info("ℹ️Form in Page Object \"AddressCreationForm\" was filled with data from scenario and submitted.ℹ️");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find an element inside Page Object \"AddressCreationForm\"❌. Please check the selector you defined for form elements. More information: " + e.getMessage());
     }

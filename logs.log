@@ -1,55 +1,68 @@
-2023-09-20 20:54:00 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
-2023-09-20 20:54:00 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
-2023-09-20 20:54:00 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
-2023-09-20 20:54:00 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
-2023-09-20 20:54:01 INFO  OnlineStoreSteps:27 - ℹ️Page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
-2023-09-20 20:54:02 INFO  MainPage:27 - ℹ️User has been directed to the login page.ℹ️
-2023-09-20 20:54:03 INFO  LoginPage:31 - ℹ️Login form has been filled with user name and password and submitted.ℹ️
-2023-09-20 20:54:03 INFO  MyAccountPage:27 - ℹ️User has been directed to the home page.ℹ️
-2023-09-20 20:54:04 INFO  MainPage:37 - ℹ️Product Details Page has been opened.ℹ️
-2023-09-20 20:54:04 INFO  ProductDetailsPage:39 - ℹ️Discount info element with text "-20%" is displayed on the product details page. The discount for the product is 20%.ℹ️
-2023-09-20 20:54:04 INFO  ProductDetailsPage:74 - ℹ️5 pieces of product have been added to cart.ℹ️
-2023-09-20 20:54:05 INFO  ShoppingCartPage:24 - ℹ️User has been directed to the checkout page.ℹ️
-2023-09-20 20:54:08 INFO  DeliveryAndPaymentInformationPage:44 - ℹ️Address and delivery & payment details have been selected.ℹ️
-2023-09-20 20:54:10 INFO  OrderConfirmationPage:33 - ℹ️Screenshot has been taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.ℹ️
-2023-09-20 20:54:11 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
-2023-09-20 20:54:11 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
-2023-09-20 20:54:11 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
-2023-09-20 20:54:11 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
-2023-09-20 20:54:13 INFO  OnlineStoreSteps:27 - ℹ️Page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
-2023-09-20 20:54:13 INFO  MainPage:27 - ℹ️User has been directed to the login page.ℹ️
-2023-09-20 20:54:14 INFO  LoginPage:31 - ℹ️Login form has been filled with user name and password and submitted.ℹ️
-2023-09-20 20:54:14 INFO  MyAccountPage:36 - ℹ️User has been directed to the address creation form.ℹ️
-2023-09-20 20:54:14 INFO  YourAddressesPage:40 - ℹ️User has been directed to the address creation form.ℹ️
-2023-09-20 20:54:15 INFO  AddressCreationForm:46 - ℹ️Address creation form has been filled and saved.ℹ️
-2023-09-20 20:54:15 INFO  YourAddressesPage:71 - ✅All user address data is correct✅
-2023-09-20 20:54:15 INFO  YourAddressesPage:31 - ℹ️The "Delete" anchor has been clicked.ℹ️
-2023-09-20 20:54:15 INFO  YourAddressesPage:51 - ✅Address has been deleted successfully.✅
-2023-09-20 21:22:41 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
-2023-09-20 21:22:41 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
-2023-09-20 21:22:41 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
-2023-09-20 21:22:41 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
-2023-09-20 21:23:05 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
-2023-09-20 21:23:05 FATAL MainPage:30 - ❌Failed to find an element "signInAnchor" from "MainPage". Make sure your selector is correct.❌ More information: no such element: Unable to locate element: {"method":"xpath","selector":"//a/span[text()='Sign in to user account']"}
+2023-09-21 19:05:23 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-21 19:05:23 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-21 19:05:23 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-21 19:05:23 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-21 19:05:43 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-21 19:05:43 INFO  MainPage:27 - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
+2023-09-21 19:05:44 INFO  LoginPage:31 - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
+2023-09-21 19:05:44 INFO  MyAccountPage:27 - ℹ️User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".ℹ️
+2023-09-21 19:05:45 INFO  MainPage:37 - ℹ️User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".ℹ️
+2023-09-21 19:05:45 INFO  ProductDetailsPage:46 - ℹ️Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.ℹ️
+2023-09-21 19:05:49 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-21 19:05:49 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-21 19:05:49 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-21 19:05:49 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-21 19:05:50 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-21 19:21:43 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-21 19:21:43 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-21 19:21:43 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-21 19:21:43 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-21 19:22:03 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-21 19:22:04 INFO  MainPage:27 - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
+2023-09-21 19:22:04 INFO  LoginPage:31 - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
+2023-09-21 19:22:05 INFO  MyAccountPage:27 - ℹ️User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".ℹ️
+2023-09-21 19:22:05 INFO  MainPage:37 - ℹ️User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".ℹ️
+2023-09-21 19:22:05 INFO  ProductDetailsPage:46 - ℹ️Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.ℹ️
+2023-09-21 19:22:16 FATAL ProductDetailsPage:88 - ❌Test failed to find WebElement "proceedToCheckoutAnchor" inside Page Object "ProductDetailsPage" within the defined timeout❌. If testing conditions are uncertain, consider defining a longer timeout. More information: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //a[@href="https://mystore-testlab.coderslab.pl/index.php?controller=cart&action=show"]' (tried for 10 second(s) with 500 milliseconds interval)
+2023-09-21 19:22:16 INFO  ShoppingCartPage:24 - ℹ️User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".ℹ️
+2023-09-21 19:22:16 FATAL DeliveryAndPaymentInformationPage:46 - ❌Test failed to find form control(s) inside Page Object "DeliveryAndPaymentInformationPage"❌. Please check the selectors you defined for WebElements in this Page Object. More information: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='Home Address']"}
   (Session info: chrome=116.0.5845.188)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bf208993912ef8d83fd5d086e3f902ec, findElement {using=xpath, value=//a/span[text()='Sign in to user account']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\HARDPC\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55782}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55782/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: bf208993912ef8d83fd5d086e3f902ec
-2023-09-20 21:23:05 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
-2023-09-20 21:23:05 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
-2023-09-20 21:23:05 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
-2023-09-20 21:23:05 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
-2023-09-20 21:23:08 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
-2023-09-20 21:23:08 FATAL MainPage:30 - ❌Failed to find an element "signInAnchor" from "MainPage". Make sure your selector is correct.❌ More information: no such element: Unable to locate element: {"method":"xpath","selector":"//a/span[text()='Sign in to user account']"}
-  (Session info: chrome=116.0.5845.188)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3762f5b02d08efd24da98f2b11af18e1, findElement {using=xpath, value=//a/span[text()='Sign in to user account']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\HARDPC\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55804}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55804/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3762f5b02d08efd24da98f2b11af18e1
+Command: [95f094e8911959f2308bcc27706064fe, findElement {using=xpath, value=//span[text()='Home Address']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\HARDPC\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64091}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64091/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 95f094e8911959f2308bcc27706064fe
+2023-09-21 19:22:17 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-21 19:22:17 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-21 19:22:17 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-21 19:22:17 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-21 19:22:20 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-21 19:26:09 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-21 19:26:09 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-21 19:26:09 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-21 19:26:09 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-21 19:26:30 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-21 19:26:30 INFO  MainPage:27 - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
+2023-09-21 19:26:31 INFO  LoginPage:31 - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
+2023-09-21 19:26:31 INFO  MyAccountPage:27 - ℹ️User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".ℹ️
+2023-09-21 19:26:32 INFO  MainPage:37 - ℹ️User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".ℹ️
+2023-09-21 19:26:32 INFO  ProductDetailsPage:44 - ℹ️Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.ℹ️
+2023-09-21 19:26:33 INFO  ProductDetailsPage:82 - ℹ️5 pieces of product have been added to cart.ℹ️
+2023-09-21 19:26:33 INFO  ShoppingCartPage:24 - ℹ️User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".ℹ️
+2023-09-21 19:26:35 INFO  DeliveryAndPaymentInformationPage:44 - ℹ️Details on user address, delivery & payment methods were selected in Page Object "DeliveryAndPaymentInformationPage".ℹ️
+2023-09-21 19:26:38 INFO  OrderConfirmationPage:33 - ℹ️Screenshot showing order details was taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.ℹ️
+2023-09-21 19:26:38 INFO  OnlineStoreSteps:20 - ℹ️Chrome browser has been opened.ℹ️
+2023-09-21 19:26:39 INFO  OnlineStoreSteps:22 - ℹ️Browser window has been maximized.ℹ️
+2023-09-21 19:26:39 INFO  OnlineStoreSteps:24 - ℹ️Browser cookies have been deleted.ℹ️
+2023-09-21 19:26:39 INFO  OnlineStoreSteps:25 - ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️
+2023-09-21 19:26:59 INFO  OnlineStoreSteps:27 - ℹ️Main page "https://mystore-testlab.coderslab.pl/index.php?" has been opened.ℹ️
+2023-09-21 19:26:59 INFO  MainPage:27 - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
+2023-09-21 19:27:00 INFO  LoginPage:31 - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
+2023-09-21 19:27:00 INFO  MyAccountPage:36 - ℹ️User has been directed to the address creation form.ℹ️
+2023-09-21 19:27:01 INFO  YourAddressesPage:40 - ℹ️User has been directed to the address creation form.ℹ️
+2023-09-21 19:27:01 INFO  AddressCreationForm:46 - ℹ️Form in Page Object "AddressCreationForm" was filled and saved.ℹ️
+2023-09-21 19:27:01 INFO  YourAddressesPage:71 - ✅All user address data is correct✅
+2023-09-21 19:27:02 INFO  YourAddressesPage:31 - ℹ️The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...ℹ️
+2023-09-21 19:27:02 INFO  YourAddressesPage:51 - ✅Address has been deleted successfully.✅

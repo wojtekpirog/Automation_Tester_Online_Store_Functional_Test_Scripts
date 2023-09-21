@@ -3,9 +3,14 @@ package pages;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +27,7 @@ public class ProductDetailsPage {
   @FindBy(xpath = "//button[@data-button-action=\"add-to-cart\"]")
   private WebElement addToCartButton;
   @FindBy(xpath = "//a[text()='Proceed to checkout']")
-  private WebElement proceedToCheckoutButton;
+  private WebElement proceedToCheckoutAnchor;
 
   public ProductDetailsPage(WebDriver browser) {
     this.browser = browser;
@@ -51,7 +56,7 @@ public class ProductDetailsPage {
       Select sizeDropdown = new Select(sizeSelect);
       //Create a list of valid sizes:
       List<String> validSizes = Arrays.asList("S", "M", "L", "XL");
-      //Check if size is correct, and fail the test if it is not correct
+      //Check if size is correct, else fail the test
       try {
         Assert.assertTrue(validSizes.contains(size));
       } catch (AssertionError e) {
@@ -70,9 +75,17 @@ public class ProductDetailsPage {
       JavascriptExecutor jsExecutor = (JavascriptExecutor)browser;
       jsExecutor.executeScript("arguments[0].value=\"" + quantity + "\";", quantityWantedInput);
       addToCartButton.click();
-      browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-      log.info("ℹ️" + quantity + " pieces of product have been added to cart.ℹ️");
-      proceedToCheckoutButton.click();
+      //Add an explicit wait to explicitly wait for a pop-up to become ready for interaction
+      WebDriverWait waitForPopup = new WebDriverWait(browser, Duration.ofSeconds(10));
+      try {
+        WebElement element = waitForPopup.until(ExpectedConditions.visibilityOf(proceedToCheckoutAnchor));
+        log.info("ℹ️" + quantity + " pieces of product have been added to cart.ℹ️");
+        element.click();
+      } catch (TimeoutException e) {
+        log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\" within the defined timeout. Make sure the WebElement is fully visible and ready for interaction, and if testing conditions are uncertain, consider adjusting the timeout. You can also check if the selector is correct❌. More information: " + e.getMessage());
+      } catch (NoSuchElementException e) {
+        log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
+      }
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"sizeSelect\" inside Page Object \"ProductDetailsPage\". The default size option might have been selected. Please check the selector you defined for WebElement \"sizeSelect\"❌. More information: " + e.getMessage());
     }
