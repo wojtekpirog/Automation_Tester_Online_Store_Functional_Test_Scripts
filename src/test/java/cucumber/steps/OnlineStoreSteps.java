@@ -4,13 +4,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
 public class OnlineStoreSteps {
-  private static final Logger log = Logger.getLogger(OnlineStoreSteps.class);
+  private static final Logger log = LogManager.getLogger(OnlineStoreSteps.class);
   private WebDriver browser;
 
   @Given("User is logged in to their homepage")

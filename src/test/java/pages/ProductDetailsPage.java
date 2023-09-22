@@ -1,6 +1,7 @@
 package pages;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ProductDetailsPage {
-  private static final Logger log = Logger.getLogger(ProductDetailsPage.class);
+  private static final Logger log = LogManager.getLogger(ProductDetailsPage.class);
   private WebDriver browser;
   @FindBy(xpath = "//section[@id=\"content\"]/ul/li")
   private WebElement productFlag;
@@ -43,7 +44,7 @@ public class ProductDetailsPage {
       if (discountInfo.contains("20%")) {
         log.info("ℹ️Discount info element with text \"" + discountInfo + "\" inside Page Object \"ProductDetailsPage\" is displayed. The discount for the product is 20%.ℹ️");
       } else {
-        log.info("ℹ️Discount info element with text \"" + discountInfo + "\" inside Page Object \"ProductDetailsPage\" is displayed. The discount for the product though is different that 20%.ℹ️");
+        log.warn("⚠️Discount info element with text \"" + discountInfo + "\" inside Page Object \"ProductDetailsPage\" is displayed. The discount for the product though is different that 20%.⚠️");
       }
     } catch (NoSuchElementException e) {
       log.info("ℹ️There is no discount info element inside Page Object \"ProductDetailsPage\". The product is not at a discount.ℹ️");

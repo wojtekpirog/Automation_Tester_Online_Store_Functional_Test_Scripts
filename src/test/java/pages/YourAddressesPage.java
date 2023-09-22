@@ -1,6 +1,7 @@
 package pages;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class YourAddressesPage {
-  private static final Logger log = Logger.getLogger(YourAddressesPage.class);
+  private static final Logger log = LogManager.getLogger(YourAddressesPage.class);
   private WebDriver browser;
   @FindBy(xpath = "//section[@id=\"content\"]/div[last()-2]")
   private WebElement lastAddressBody;

@@ -1,6 +1,7 @@
 package pages;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class OrderConfirmationPage {
-  private static final Logger log = Logger.getLogger(OrderConfirmationPage.class);
+  private static final Logger log = LogManager.getLogger(OrderConfirmationPage.class);
   private WebDriver browser;
   //Find the element with order confirmation and amount to take a screenshot:
   @FindBy(xpath = "//section[@id=\"content\"]")

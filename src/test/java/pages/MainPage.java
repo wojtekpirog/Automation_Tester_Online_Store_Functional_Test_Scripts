@@ -1,6 +1,7 @@
 package pages;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
-  private static final Logger log = Logger.getLogger(MainPage.class);
+  private static final Logger log = LogManager.getLogger(MainPage.class);
   private WebDriver browser;
   @FindBy(xpath = "//a/span[text()='Sign in']")
   private WebElement signInAnchor;
