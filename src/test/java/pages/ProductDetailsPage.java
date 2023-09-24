@@ -56,7 +56,7 @@ public class ProductDetailsPage {
     //Create a list of valid sizes:
     List<String> validSizes = Arrays.asList("S", "M", "L", "XL");
     Select sizeDropdown = new Select(sizeSelect);
-    //Check if size is correct, else fail the test
+    //Select the desired size, then check if the size is correct, else fail the test
     try {
       sizeDropdown.selectByVisibleText(size);
       Assert.assertTrue(validSizes.contains(size));
@@ -77,7 +77,7 @@ public class ProductDetailsPage {
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"quantityWantedInput\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
     }
-    //Add selected and detailed product to cart
+    //Add product to cart
     try {
       addToCartButton.click();
     } catch (NoSuchElementException e) {
@@ -87,8 +87,8 @@ public class ProductDetailsPage {
     WebDriverWait waitForPopup = new WebDriverWait(browser, Duration.ofSeconds(10));
     try {
       WebElement element = waitForPopup.until(ExpectedConditions.visibilityOf(proceedToCheckoutAnchor));
-      log.info(quantity + " pieces of product have been added to cart.");
       element.click();
+      log.info(quantity + " pieces of product have been added to cart.");
     } catch (TimeoutException e) {
       log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\" within the defined timeout. Make sure the WebElement is fully visible and ready for interaction, and if testing conditions are uncertain, consider adjusting the timeout. You can also check if the selector is correct❌. More information: " + e.getMessage());
     } catch (NoSuchElementException e) {

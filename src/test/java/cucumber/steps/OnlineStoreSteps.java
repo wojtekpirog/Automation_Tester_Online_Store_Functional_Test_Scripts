@@ -62,7 +62,7 @@ public class OnlineStoreSteps {
     shoppingCart.proceedToCheckout();
 
     DeliveryAndPaymentInformationPage informationPage = new DeliveryAndPaymentInformationPage(browser);
-    informationPage.AcceptAddressInformation();
+    informationPage.placeOrder();
   }
 
   @Then("User can see the order confirmation along with its amount")
@@ -74,8 +74,8 @@ public class OnlineStoreSteps {
 
   @Then("The address is created with appropriate data: {string}, {string}, {string}, {word}, {string}, {string}")
   public void checkData(String expectedAlias, String expectedAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhone) {
-    YourAddressesPage pageWithAddresses = new YourAddressesPage(browser);
-    pageWithAddresses.checkData(expectedAlias, expectedAddress, expectedCity, expectedZipcode, expectedCountry, expectedPhone);
+    YourAddressesPage yourAddressesPage = new YourAddressesPage(browser);
+    yourAddressesPage.checkData(expectedAlias, expectedAddress, expectedCity, expectedZipcode, expectedCountry, expectedPhone);
   }
 
   @And("User can delete the address")

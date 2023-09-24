@@ -63,12 +63,7 @@ public class YourAddressesPage {
       String addressText = lastAddressBody.getText();
       //Compare data in the address box with expected data:
       try {
-        Assert.assertTrue(addressText.contains(expectedAlias));
-        Assert.assertTrue(addressText.contains(expectedStreetAddress));
-        Assert.assertTrue(addressText.contains(expectedCity));
-        Assert.assertTrue(addressText.contains(expectedZipcode));
-        Assert.assertTrue(addressText.contains(expectedCountry));
-        Assert.assertTrue(addressText.contains(expectedPhone));
+        assertContains(addressText, expectedAlias, expectedStreetAddress, expectedCity, expectedZipcode, expectedCountry, expectedPhone);
         log.info("✅All entries regarding user address information are verified and correct✅");
       } catch (AssertionError e) {
         log.error("Assertion error - test failed to assert that all actual user address data equal with the expected address data for tested field. More information on this error: " + e.getMessage());
@@ -76,5 +71,14 @@ public class YourAddressesPage {
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
+  }
+  //Method to compare data in the address box and assert it is correct:
+  public void assertContains(String textContent, String alias, String streetAddress, String city, String zipcode, String country, String phone) {
+    Assert.assertTrue(textContent.contains(alias));
+    Assert.assertTrue(textContent.contains(streetAddress));
+    Assert.assertTrue(textContent.contains(city));
+    Assert.assertTrue(textContent.contains(zipcode));
+    Assert.assertTrue(textContent.contains(country));
+    Assert.assertTrue(textContent.contains(phone));
   }
 }

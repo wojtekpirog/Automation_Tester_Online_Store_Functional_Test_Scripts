@@ -1,83 +1,26 @@
-[INFO ] 2023-09-22 21:34:01.276 [main] MainPage - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
-[INFO ] 2023-09-22 21:34:01.984 [main] LoginPage - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
-[INFO ] 2023-09-22 21:34:02.197 [main] MyAccountPage - ℹ️User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".ℹ️
-[INFO ] 2023-09-22 21:34:03.165 [main] MainPage - ℹ️User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".ℹ️
-[INFO ] 2023-09-22 21:34:03.191 [main] ProductDetailsPage - ℹ️Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.ℹ️
-[INFO ] 2023-09-22 21:34:03.907 [main] ProductDetailsPage - ℹ️5 pieces of product have been added to cart.ℹ️
-[INFO ] 2023-09-22 21:34:04.470 [main] ShoppingCartPage - ℹ️User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".ℹ️
-[INFO ] 2023-09-22 21:34:06.040 [main] DeliveryAndPaymentInformationPage - ℹ️Details on user address, delivery & payment methods were selected in Page Object "DeliveryAndPaymentInformationPage".ℹ️
-[INFO ] 2023-09-22 21:34:08.663 [main] OrderConfirmationPage - ℹ️Screenshot showing order details was taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.ℹ️
-[INFO ] 2023-09-22 21:34:12.259 [main] MainPage - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
-[INFO ] 2023-09-22 21:34:12.957 [main] LoginPage - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
-[INFO ] 2023-09-22 21:34:13.183 [main] MyAccountPage - ℹ️User clicked on WebElement "addressesAnchor" inside Page Object "MyAccountPage" was directed to Page Object "YourAddressesPage".ℹ️
-[INFO ] 2023-09-22 21:34:13.419 [main] YourAddressesPage - ℹ️User clicked WebElement "createNewAddressAnchor" inside Page Object "YourAddressesPage" and was directed to Page Object "AddressCreationForm".ℹ️
-[INFO ] 2023-09-22 21:34:14.201 [main] AddressCreationForm - ℹ️Form in Page Object "AddressCreationForm" was filled with data from scenario and submitted.ℹ️
-[INFO ] 2023-09-22 21:34:14.225 [main] YourAddressesPage - ✅All entries regarding user address information are verified and correct✅
-[INFO ] 2023-09-22 21:34:14.546 [main] YourAddressesPage - ℹ️The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...ℹ️
-[INFO ] 2023-09-22 21:34:14.563 [main] YourAddressesPage - ✅Address has been deleted successfully.✅
-[INFO ] 2023-09-22 23:39:30.206 [main] MainPage - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
-[INFO ] 2023-09-22 23:39:30.903 [main] LoginPage - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
-[INFO ] 2023-09-22 23:39:31.145 [main] MyAccountPage - ℹ️User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".ℹ️
-[INFO ] 2023-09-22 23:39:31.611 [main] MainPage - ℹ️User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".ℹ️
-[INFO ] 2023-09-22 23:39:31.634 [main] ProductDetailsPage - ℹ️Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.ℹ️
-[INFO ] 2023-09-22 23:39:32.894 [main] ProductDetailsPage - ℹ️5 pieces of product have been added to cart.ℹ️
-[INFO ] 2023-09-22 23:39:33.503 [main] ShoppingCartPage - ℹ️User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".ℹ️
-[INFO ] 2023-09-22 23:39:35.113 [main] DeliveryAndPaymentInformationPage - ℹ️Details on user address, delivery & payment methods were selected in Page Object "DeliveryAndPaymentInformationPage".ℹ️
-[INFO ] 2023-09-22 23:39:37.704 [main] OrderConfirmationPage - ℹ️Screenshot showing order details was taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.ℹ️
-[INFO ] 2023-09-22 23:39:59.959 [main] MainPage - ℹ️User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".ℹ️
-[INFO ] 2023-09-22 23:40:00.658 [main] LoginPage - ℹ️Login form inside Page Object "LoginPage" was submitted with username and password.ℹ️
-[INFO ] 2023-09-22 23:40:00.884 [main] MyAccountPage - ℹ️User clicked on WebElement "addressesAnchor" inside Page Object "MyAccountPage" was directed to Page Object "YourAddressesPage".ℹ️
-[INFO ] 2023-09-22 23:40:01.126 [main] YourAddressesPage - ℹ️User clicked WebElement "createNewAddressAnchor" inside Page Object "YourAddressesPage" and was directed to Page Object "AddressCreationForm".ℹ️
-[INFO ] 2023-09-22 23:40:01.971 [main] AddressCreationForm - ℹ️Form in Page Object "AddressCreationForm" was filled with data from scenario and submitted.ℹ️
-[INFO ] 2023-09-22 23:40:01.995 [main] YourAddressesPage - ✅All entries regarding user address information are verified and correct✅
-[INFO ] 2023-09-22 23:40:02.325 [main] YourAddressesPage - ℹ️The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...ℹ️
-[INFO ] 2023-09-22 23:40:02.343 [main] YourAddressesPage - ✅Address has been deleted successfully.✅
-[INFO ] 2023-09-24 20:48:17.309 [main] MainPage - User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".
-[INFO ] 2023-09-24 20:48:18.308 [main] LoginPage - Login form inside Page Object "LoginPage" was submitted with username and password.
-[INFO ] 2023-09-24 20:48:18.606 [main] MyAccountPage - User clicked on WebElement "addressesAnchor" inside Page Object "MyAccountPage" was directed to Page Object "YourAddressesPage".
-[INFO ] 2023-09-24 20:48:18.919 [main] YourAddressesPage - User clicked WebElement "createNewAddressAnchor" inside Page Object "YourAddressesPage" and was directed to Page Object "AddressCreationForm".
-[INFO ] 2023-09-24 20:48:19.811 [main] AddressCreationForm - Form in Page Object "AddressCreationForm" was filled with data from scenario and submitted.
-[INFO ] 2023-09-24 20:48:19.837 [main] YourAddressesPage - ✅All entries regarding user address information are verified and correct✅
-[INFO ] 2023-09-24 20:48:20.475 [main] YourAddressesPage - The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...
-[INFO ] 2023-09-24 20:48:20.493 [main] YourAddressesPage - ✅Address has been deleted successfully.✅
-[INFO ] 2023-09-24 20:53:21.227 [main] MainPage - User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".
-[INFO ] 2023-09-24 20:53:21.962 [main] LoginPage - Login form inside Page Object "LoginPage" was submitted with username and password.
-[INFO ] 2023-09-24 20:53:22.262 [main] MyAccountPage - User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".
-[INFO ] 2023-09-24 20:53:22.650 [main] MainPage - User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".
-[INFO ] 2023-09-24 20:53:22.665 [main] ProductDetailsPage - Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.
-[FATAL] 2023-09-24 20:53:22.799 [main] ProductDetailsPage - ❌Test failed to find WebElement "sizeSelect" inside Page Object "ProductDetailsPage". The default size option might have been selected. Please check the selector you defined for WebElement "sizeSelect"❌. More information: no such element: Unable to locate element: {"method":"xpath","selector":"quantity_wanted"}
-  (Session info: chrome=116.0.5845.188)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [01b9da74a823a9f9b07fb2ff157584a2, findElement {using=xpath, value=quantity_wanted}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\HARDPC\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:19991}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:19991/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 01b9da74a823a9f9b07fb2ff157584a2
-[FATAL] 2023-09-24 20:53:22.825 [main] ShoppingCartPage - ❌Failed to find an element "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage". Make sure your selector is correct.❌ More information: no such element: Unable to locate element: {"method":"link text","selector":"Proceed to checkout"}
-  (Session info: chrome=116.0.5845.188)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [01b9da74a823a9f9b07fb2ff157584a2, findElement {using=link text, value=Proceed to checkout}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\HARDPC\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:19991}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:19991/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 01b9da74a823a9f9b07fb2ff157584a2
-[FATAL] 2023-09-24 20:53:22.839 [main] DeliveryAndPaymentInformationPage - ❌Test failed to find form control(s) inside Page Object "DeliveryAndPaymentInformationPage"❌. Please check the selectors you defined for WebElements in this Page Object. More information: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='Home Address']"}
-  (Session info: chrome=116.0.5845.188)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [01b9da74a823a9f9b07fb2ff157584a2, findElement {using=xpath, value=//span[text()='Home Address']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\HARDPC\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:19991}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:19991/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 01b9da74a823a9f9b07fb2ff157584a2
-[INFO ] 2023-09-24 20:53:25.502 [main] OrderConfirmationPage - Screenshot showing order details was taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.
-[INFO ] 2023-09-24 20:53:28.456 [main] MainPage - User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".
-[INFO ] 2023-09-24 20:53:29.265 [main] LoginPage - Login form inside Page Object "LoginPage" was submitted with username and password.
-[INFO ] 2023-09-24 20:53:29.608 [main] MyAccountPage - User clicked on WebElement "addressesAnchor" inside Page Object "MyAccountPage" was directed to Page Object "YourAddressesPage".
-[INFO ] 2023-09-24 20:53:29.856 [main] YourAddressesPage - User clicked WebElement "createNewAddressAnchor" inside Page Object "YourAddressesPage" and was directed to Page Object "AddressCreationForm".
-[INFO ] 2023-09-24 20:53:30.674 [main] AddressCreationForm - Form in Page Object "AddressCreationForm" was filled with data from scenario and submitted.
-[INFO ] 2023-09-24 20:53:30.699 [main] YourAddressesPage - ✅All entries regarding user address information are verified and correct✅
-[INFO ] 2023-09-24 20:53:31.252 [main] YourAddressesPage - The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...
-[INFO ] 2023-09-24 20:53:31.269 [main] YourAddressesPage - ✅Address has been deleted successfully.✅
+[INFO ] 2023-09-24 23:12:51.129 [main] MainPage - User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".
+[INFO ] 2023-09-24 23:12:51.882 [main] LoginPage - Login form inside Page Object "LoginPage" was submitted with username and password.
+[INFO ] 2023-09-24 23:12:52.238 [main] MyAccountPage - User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".
+[INFO ] 2023-09-24 23:12:52.878 [main] MainPage - User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".
+[INFO ] 2023-09-24 23:12:52.902 [main] ProductDetailsPage - Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.
+[INFO ] 2023-09-24 23:12:53.002 [main] ProductDetailsPage - Size M was selected. The size is valid.
+[INFO ] 2023-09-24 23:12:54.458 [main] ProductDetailsPage - 5 pieces of product have been added to cart.
+[INFO ] 2023-09-24 23:12:54.764 [main] ShoppingCartPage - User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".
+[INFO ] 2023-09-24 23:21:20.829 [main] MainPage - User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".
+[INFO ] 2023-09-24 23:21:21.617 [main] LoginPage - Login form inside Page Object "LoginPage" was submitted with username and password.
+[INFO ] 2023-09-24 23:21:21.925 [main] MyAccountPage - User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".
+[INFO ] 2023-09-24 23:21:22.354 [main] MainPage - User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".
+[INFO ] 2023-09-24 23:21:22.378 [main] ProductDetailsPage - Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.
+[INFO ] 2023-09-24 23:21:22.488 [main] ProductDetailsPage - Size M was selected. The size is valid.
+[INFO ] 2023-09-24 23:21:23.453 [main] ProductDetailsPage - 5 pieces of product have been added to cart.
+[INFO ] 2023-09-24 23:21:23.762 [main] ShoppingCartPage - User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".
+[INFO ] 2023-09-24 23:21:25.539 [main] DeliveryAndPaymentInformationPage - Details on user address, delivery & payment methods were selected in Page Object "DeliveryAndPaymentInformationPage".
+[INFO ] 2023-09-24 23:21:28.117 [main] OrderConfirmationPage - Screenshot showing order details was taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.
+[INFO ] 2023-09-24 23:21:49.670 [main] MainPage - User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".
+[INFO ] 2023-09-24 23:21:50.361 [main] LoginPage - Login form inside Page Object "LoginPage" was submitted with username and password.
+[INFO ] 2023-09-24 23:21:50.587 [main] MyAccountPage - User clicked on WebElement "addressesAnchor" inside Page Object "MyAccountPage" was directed to Page Object "YourAddressesPage".
+[INFO ] 2023-09-24 23:21:50.841 [main] YourAddressesPage - User clicked WebElement "createNewAddressAnchor" inside Page Object "YourAddressesPage" and was directed to Page Object "AddressCreationForm".
+[INFO ] 2023-09-24 23:21:51.615 [main] AddressCreationForm - Form in Page Object "AddressCreationForm" was filled with data from scenario and submitted.
+[INFO ] 2023-09-24 23:21:51.639 [main] YourAddressesPage - ✅All entries regarding user address information are verified and correct✅
+[INFO ] 2023-09-24 23:21:51.950 [main] YourAddressesPage - The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...
+[INFO ] 2023-09-24 23:21:51.966 [main] YourAddressesPage - ✅Address has been deleted successfully.✅
