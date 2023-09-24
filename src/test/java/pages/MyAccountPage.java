@@ -11,9 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 public class MyAccountPage {
   private static final Logger log = LogManager.getLogger(MyAccountPage.class);
   private WebDriver browser;
-  @FindBy(xpath = "//*[@id=\"addresses-link\"]")
+  @FindBy(id = "addresses-link")
   private WebElement addressesAnchor;
-  @FindBy(xpath = "//*[@id=\"_desktop_logo\"]/a")
+  @FindBy(id = "_desktop_logo")
   private WebElement storeLogo;
 
   public MyAccountPage(WebDriver browser) {
@@ -25,7 +25,7 @@ public class MyAccountPage {
   public void goToHomePage() {
     try {
       storeLogo.click();
-      log.info("ℹ️User clicked on WebElement \"storeLogo\" and was directed to Page Object \"MainPage\".ℹ️");
+      log.info("User clicked on WebElement \"storeLogo\" and was directed to Page Object \"MainPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"storeLogo\" inside Page Object \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
@@ -34,7 +34,7 @@ public class MyAccountPage {
   public void goToAddressCreationForm() {
     try {
       addressesAnchor.click();
-      log.info("ℹ️User clicked on WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\" was directed to Page Object \"YourAddressesPage\".ℹ️");
+      log.info("User clicked on WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\" was directed to Page Object \"YourAddressesPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }

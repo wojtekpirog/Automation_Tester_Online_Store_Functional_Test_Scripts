@@ -11,11 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
   private static final Logger log = LogManager.getLogger(LoginPage.class);
   private WebDriver browser;
-  @FindBy(xpath = "//*[@id=\"field-email\"]")
-  private WebElement emailInputInLoginForm;
-  @FindBy(xpath = "//*[@id=\"field-password\"]")
-  private WebElement passwordInputInLoginForm;
-  @FindBy(xpath = "//*[@id=\"submit-login\"]")
+
+  @FindBy(id = "field-email")
+  private WebElement emailInput;
+  @FindBy(id = "field-password")
+  private WebElement passwordInput;
+  @FindBy(id = "submit-login")
   private WebElement signInButton;
 
   public LoginPage(WebDriver browser) {
@@ -24,19 +25,20 @@ public class LoginPage {
   }
 
   //Method to login user:
-  public void loginUser() {
+  public void loginUser(String email, String password) {
     try {
-      clearAndType(emailInputInLoginForm, "wojciechkowalski@gmail.com");
-      clearAndType(passwordInputInLoginForm, "Voyt@$$");
-      signInButton.click();
-      log.info("ℹ️Login form inside Page Object \"LoginPage\" was submitted with username and password.ℹ️");
+      fillInLoginForm(emailInput, passwordInput, signInButton, email, password);
+      log.info("Login form inside Page Object \"LoginPage\" was submitted with username and password.");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find an element of login form inside \"LoginPage\". Make sure selectors for \"emailInputInLoginForm\" and \"passwordInputInLoginForm\" are correct.❌ More information: " + e.getMessage());
     }
   }
   //Method to clear form input and type in desired text:
-  private void clearAndType(WebElement element, String text) {
-    element.clear();
-    element.sendKeys(text);
+  private void fillInLoginForm(WebElement emailInput, WebElement passwordInput, WebElement signInButton, String email, String password) {
+    emailInput.clear();
+    emailInput.sendKeys(email);
+    passwordInput.clear();
+    passwordInput.sendKeys(password);
+    signInButton.click();
   }
 }

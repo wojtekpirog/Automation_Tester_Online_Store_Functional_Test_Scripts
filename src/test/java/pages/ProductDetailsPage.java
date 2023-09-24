@@ -21,9 +21,9 @@ public class ProductDetailsPage {
   private WebDriver browser;
   @FindBy(xpath = "//section[@id=\"content\"]/ul/li")
   private WebElement productFlag;
-  @FindBy(xpath = "//select[@id=\"group_1\"]")
+  @FindBy(id = "group_1")
   private WebElement sizeSelect;
-  @FindBy(xpath = "//input[@id=\"quantity_wanted\"]")
+  @FindBy(id = "quantity_wanted")
   private WebElement quantityWantedInput;
   @FindBy(xpath = "//button[@data-button-action=\"add-to-cart\"]")
   private WebElement addToCartButton;
@@ -42,54 +42,57 @@ public class ProductDetailsPage {
     try {
       discountInfo = productFlag.getText();
       if (discountInfo.contains("20%")) {
-        log.info("ℹ️Discount info element with text \"" + discountInfo + "\" inside Page Object \"ProductDetailsPage\" is displayed. The discount for the product is 20%.ℹ️");
+        log.info("Discount info element with text \"" + discountInfo + "\" inside Page Object \"ProductDetailsPage\" is displayed. The discount for the product is 20%.");
       } else {
         log.warn("⚠️Discount info element with text \"" + discountInfo + "\" inside Page Object \"ProductDetailsPage\" is displayed. The discount for the product though is different that 20%.⚠️");
       }
     } catch (NoSuchElementException e) {
-      log.info("ℹ️There is no discount info element inside Page Object \"ProductDetailsPage\". The product is not at a discount.ℹ️");
+      log.info("There is no discount info element inside Page Object \"ProductDetailsPage\". The product is not at a discount.");
     }
   }
 
   public void addProductToCart(int quantity, String size) {
     //Create an object of type `Select` to store a previously found dropdown
+    //Create a list of valid sizes:
+    List<String> validSizes = Arrays.asList("S", "M", "L", "XL");
+    Select sizeDropdown = new Select(sizeSelect);
+    //Check if size is correct, else fail the test
     try {
-      Select sizeDropdown = new Select(sizeSelect);
-      //Create a list of valid sizes:
-      List<String> validSizes = Arrays.asList("S", "M", "L", "XL");
-      //Check if size is correct, else fail the test
-      try {
-        Assert.assertTrue(validSizes.contains(size));
-      } catch (AssertionError e) {
-        log.fatal("❌Sweater size " + size + " is incorrect❌. Try another size.");
-        log.info("ℹ️Available sizes of the product are: \"S\", \"M\", \"L\" and \"XL\".ℹ️");
-      }
       sizeDropdown.selectByVisibleText(size);
-      //Check if value of variable `quantity` is greater than 0, else fail the test
-      try {
-        Assert.assertTrue(quantity > 0);
-      } catch (AssertionError e) {
-        log.fatal("❌Value " + quantity + " is incorrect❌. Try using a positive whole number.");
-        log.info("ℹ️Quantity of products must be positive (greater than 0).ℹ️");
-      }
-      //Force JavaScript to change the "value" attribute of `this.quantityWantedInput` (input of type number)
-      JavascriptExecutor jsExecutor = (JavascriptExecutor)browser;
-      jsExecutor.executeScript("arguments[0].value=\"" + quantity + "\";", quantityWantedInput);
-      addToCartButton.click();
-      //Add an explicit wait to explicitly wait for a pop-up to become ready for interaction
-      WebDriverWait waitForPopup = new WebDriverWait(browser, Duration.ofSeconds(10));
-      try {
-        WebElement element = waitForPopup.until(ExpectedConditions.visibilityOf(proceedToCheckoutAnchor));
-        log.info("ℹ️" + quantity + " pieces of product have been added to cart.ℹ️");
-        element.click();
-      } catch (TimeoutException e) {
-        log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\" within the defined timeout. Make sure the WebElement is fully visible and ready for interaction, and if testing conditions are uncertain, consider adjusting the timeout. You can also check if the selector is correct❌. More information: " + e.getMessage());
-      } catch (NoSuchElementException e) {
-        log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
-      }
+      Assert.assertTrue(validSizes.contains(size));
+      log.info("Size " + size + " was selected. The size is valid.");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Test failed to find WebElement \"sizeSelect\" inside Page Object \"ProductDetailsPage\". The default size option might have been selected. Please check the selector you defined for WebElement \"sizeSelect\"❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
+    } catch (AssertionError e) {
+      log.fatal("❌Sweater size " + size + " is invalid❌. Available valid sizes of the product are: \"S\", \"M\", \"L\" and \"XL\".");
+    }
+    //Check if value of variable `quantity` is greater than 0, else fail the test
+    //Force JavaScript to change the "value" attribute of `this.quantityWantedInput` (input of type number)
+    JavascriptExecutor jsExecutor = (JavascriptExecutor)browser;
+    try {
+      Assert.assertTrue(quantity > 0);
+      jsExecutor.executeScript("arguments[0].value='" + quantity + "';", quantityWantedInput);
+    } catch (AssertionError e) {
+      log.fatal("❌Value " + quantity + " is incorrect❌. Try using a positive whole number. Quantity of products must be positive (greater than 0).");
+    } catch (NoSuchElementException e) {
+      log.fatal("❌Test failed to find WebElement \"quantityWantedInput\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
+    }
+    //Add selected and detailed product to cart
+    try {
+      addToCartButton.click();
+    } catch (NoSuchElementException e) {
+      log.fatal("❌Test failed to find WebElement \"addToCartButton\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
+    }
+    //Add an explicit wait to explicitly wait for a pop-up to become ready for interaction
+    WebDriverWait waitForPopup = new WebDriverWait(browser, Duration.ofSeconds(10));
+    try {
+      WebElement element = waitForPopup.until(ExpectedConditions.visibilityOf(proceedToCheckoutAnchor));
+      log.info(quantity + " pieces of product have been added to cart.");
+      element.click();
+    } catch (TimeoutException e) {
+      log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\" within the defined timeout. Make sure the WebElement is fully visible and ready for interaction, and if testing conditions are uncertain, consider adjusting the timeout. You can also check if the selector is correct❌. More information: " + e.getMessage());
+    } catch (NoSuchElementException e) {
+      log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
     }
   }
-
 }

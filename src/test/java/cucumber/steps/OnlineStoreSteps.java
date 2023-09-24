@@ -14,24 +14,24 @@ public class OnlineStoreSteps {
   private static final Logger log = LogManager.getLogger(OnlineStoreSteps.class);
   private WebDriver browser;
 
-  @Given("User is logged in to their homepage")
-  public void LogInToUserAccount() {
+  @Given("User with email {word} and password {word} is logged in to the homepage")
+  public void LogInToUserAccount(String email, String password) {
     System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
     browser = new ChromeDriver();
-    log.info("ℹ️Chrome browser has been opened.ℹ️");
+    log.info("Chrome browser has been opened.");
     browser.manage().window().maximize();
-    log.info("ℹ️Browser window has been maximized.ℹ️");
+    log.info("Browser window has been maximized.");
     browser.manage().deleteAllCookies();
-    log.info("ℹ️Browser cookies have been deleted.ℹ️");
-    log.info("ℹ️Test environment - Chrome Browser - has been setup and is ready for testing.ℹ️");
+    log.info("Browser cookies have been deleted.");
+    log.info("Test environment - Chrome Browser - has been setup and is ready for testing.");
     browser.get("https://mystore-testlab.coderslab.pl/index.php?");
-    log.info("ℹ️Main page \"https://mystore-testlab.coderslab.pl/index.php?\" has been opened.ℹ️");
+    log.info("Main page \"https://mystore-testlab.coderslab.pl/index.php?\" has been opened.");
 
     MainPage mainPage = new MainPage(browser);
     mainPage.goToLoginPage();
 
     LoginPage loginPage = new LoginPage(browser);
-    loginPage.loginUser();
+    loginPage.loginUser(email, password);
   }
 
   @When("User creates an address with {string}, {string}, {string}, {word}, {string}, {string}")

@@ -25,7 +25,7 @@ public class MainPage {
   public void goToLoginPage() {
     try {
       signInAnchor.click();
-      log.info("ℹ️User clicked on WebElement \"signInAnchor\" and was directed to Page Object \"Login Page\".ℹ️");
+      log.info("User clicked on WebElement \"signInAnchor\" and was directed to Page Object \"Login Page\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Failed to find an element \"signInAnchor\" from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
       throw e;
@@ -35,7 +35,7 @@ public class MainPage {
   public void openProductDetailsPage() {
     try {
       productSelectionAnchor.click();
-      log.info("ℹ️User selected \"Hummingbird Printed Sweater\" and was directed to Page Object \"Product Details Page\".ℹ️");
+      log.info("User selected \"Hummingbird Printed Sweater\" and was directed to Page Object \"Product Details Page\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Failed to find an element \"productSelectionAnchor\" from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }

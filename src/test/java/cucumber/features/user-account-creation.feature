@@ -1,6 +1,6 @@
 Feature: Address creation
   Scenario Outline: User can add a new address
-    Given User is logged in to their homepage
+    Given User with email wojciechkowalski@gmail.com and password Voyt@$$ is logged in to the homepage
     When User creates an address with <Alias>, <Address>, <City>, <Zip/Postal Code>, <Country>, <Phone>
     Then The address is created with appropriate data: <Alias>, <Address>, <City>, <Zip/Postal Code>, <Country>, <Phone>
     And User can delete the address
