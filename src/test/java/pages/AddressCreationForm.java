@@ -32,7 +32,6 @@ public class AddressCreationForm {
     PageFactory.initElements(browser, this);
   }
 
-  //Method to fill in a form:
   public void fillInFormWith(String alias, String address, String city, String zipcode, String country, String phone) {
     try {
       clearAndType(aliasInput, alias);
@@ -44,14 +43,17 @@ public class AddressCreationForm {
       countrySelect.selectByVisibleText(country);
       clearAndType(phoneInput, phone);
       saveButton.click();
-      log.info("Form in Page Object \"AddressCreationForm\" was filled with data from scenario and submitted.");
+      log.info("The form inside Page Object \"AddressCreationForm\" was filled with data from scenario and WebElement \"saveButton\" was clicked to submit the form.");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Test failed to find an element inside Page Object \"AddressCreationForm\"❌. Please check the selector you defined for form elements. More information: " + e.getMessage());
+//      log.error("Test encountered an exception while filling the form inside Page Object \"AddressCreationForm\". Error type: " + e.getClass().getSimpleName() + ". More information: " + e.getMessage());
+      log.fatal("❌Test failed to find a form control or a submit button inside Page Object \"AddressCreationForm\"❌. Please check the selector you defined for form elements. More information: " + e.getMessage());
+      e.printStackTrace();
     }
   }
-  //Method to clear form input and type in desired text:
+
   private void clearAndType(WebElement element, String text) {
     element.clear();
     element.sendKeys(text);
+    log.info("Form control \"" + element + "\" inside Page Object \"AddressCreationForm\" was filled with the specific piece of data: " + text);
   }
 }

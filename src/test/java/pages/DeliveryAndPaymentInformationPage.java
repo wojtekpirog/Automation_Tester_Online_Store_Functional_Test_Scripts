@@ -15,7 +15,7 @@ public class DeliveryAndPaymentInformationPage {
   @FindBy(xpath = "//span[text()='Home Address']")
   private WebElement homeAddress;
   @FindBy(name = "confirm-addresses")
-  private WebElement toShippingMethods;
+  private WebElement goToShippingMethodsButton;
   @FindBy(xpath = "//input[@id='delivery_option_8']/following-sibling::span")
   private WebElement pickUpInStore;
   @FindBy(name = "confirmDeliveryOption")
@@ -25,7 +25,7 @@ public class DeliveryAndPaymentInformationPage {
   @FindBy(id = "conditions_to_approve[terms-and-conditions]")
   private WebElement approveConditions;
   @FindBy(xpath = "//*[@id=\"payment-confirmation\"]/div[1]/button")
-  private WebElement placeOrder;
+  private WebElement placeOrderButton;
 
   public DeliveryAndPaymentInformationPage(WebDriver browser) {
     this.browser = browser;
@@ -34,20 +34,27 @@ public class DeliveryAndPaymentInformationPage {
 
   public void placeOrder() {
     try {
-      acceptAddressInformation(homeAddress, toShippingMethods, pickUpInStore, confirmDeliveryOption, payByCheck, approveConditions, placeOrder);
-      log.info("Details on user address, delivery & payment methods were selected in Page Object \"DeliveryAndPaymentInformationPage\".");
+      selectOrderInformation(homeAddress, goToShippingMethodsButton, pickUpInStore, confirmDeliveryOption, payByCheck, approveConditions, placeOrderButton);
+      log.info("User placed an order by selecting appropriate delivery and payment options and accepting conditions inside Page Object \"DeliveryAndPaymentInformationPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find form control(s) inside Page Object \"DeliveryAndPaymentInformationPage\"❌. Please check the selectors you defined for WebElements in this Page Object. More information: " + e.getMessage());
     }
   }
-  //Method to accept address information:
-  public void acceptAddressInformation(WebElement homeAddress, WebElement toShippingMethods, WebElement pickUpInStore, WebElement confirmDeliveryOption, WebElement payByCheck, WebElement approveConditions, WebElement placeOrder) {
+
+  public void selectOrderInformation(WebElement homeAddress, WebElement goToShippingMethodsButton, WebElement pickUpInStore, WebElement confirmDeliveryOption, WebElement payByCheck, WebElement approveConditions, WebElement placeOrderButton) {
     homeAddress.click();
-    toShippingMethods.click();
+    log.info("Shipping address was selected by clicking on WebElement \"homeAddress\" inside Page Object \"DeliveryAndPaymentInformationPage\".");
+    goToShippingMethodsButton.click();
+    log.info("User was directed to shipping methods by clicking on WebElement \"goToShippingMethodsButton\" inside Page Object \"DeliveryAndPaymentInformationPage\".");
     pickUpInStore.click();
+    log.info("Delivery option \"pick up in store\" was selected by clicking on WebElement \"pickUpInStore\" inside Page Object \"DeliveryAndPaymentInformationPage\".");
     confirmDeliveryOption.click();
+    log.info("Delivery option was confirmed by clicking on WebElement \"confirmDeliveryOption\" inside Page Object \"DeliveryAndPaymentInformationPage\".");
     payByCheck.click();
+    log.info("Payment option \"Pay by Check\" was selected by clicking on WebElement \"payByCheck\" inside Page Object \"DeliveryAndPaymentInformationPage\".");
     approveConditions.click();
-    placeOrder.click();
+    log.info("Conditions were approved by clicking on WebElement \"approveConditions\" inside Page Object \"DeliveryAndPaymentInformationPage\".");
+    placeOrderButton.click();
+    log.info("WebElement \"PlaceOrderButton\" was clicked inside Page Object \"DeliveryAndPaymentInformationPage\".");
   }
 }
