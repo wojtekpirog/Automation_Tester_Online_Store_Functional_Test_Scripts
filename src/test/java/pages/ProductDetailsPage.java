@@ -67,11 +67,12 @@ public class ProductDetailsPage {
       log.fatal("❌Sweater size " + size + " is invalid❌. Available valid sizes of the product are: \"S\", \"M\", \"L\" and \"XL\".");
     }
     //Check if value of variable `quantity` is greater than 0, else fail the test
-    //Force JavaScript to change the "value" attribute of `this.quantityWantedInput` (input of type number)
+    //Force JavaScript to change the "value" attribute of `quantityWantedInput` (input of type number)
     JavascriptExecutor jsExecutor = (JavascriptExecutor)browser;
     try {
       Assert.assertTrue(quantity > 0);
       jsExecutor.executeScript("arguments[0].value='" + quantity + "';", quantityWantedInput);
+      log.info("Number " + quantity + " entered into WebElement \"qualityWantedInput\" inside Page Object \"ProductDetailsPage\".");
     } catch (AssertionError e) {
       log.fatal("❌Value " + quantity + " is incorrect❌. Try using a positive whole number. Quantity of products must be positive (greater than 0).");
     } catch (NoSuchElementException e) {
@@ -88,9 +89,11 @@ public class ProductDetailsPage {
     try {
       WebElement element = waitForPopup.until(ExpectedConditions.visibilityOf(proceedToCheckoutAnchor));
       element.click();
-      log.info(quantity + " pieces of product have been added to cart.");
+      log.info("Test clicked on WebElement \"proceedToCheckoutAnchor\", and then " + quantity + " pieces of product were successfully added to cart.");
     } catch (TimeoutException e) {
-      log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\" within the defined timeout. Make sure the WebElement is fully visible and ready for interaction, and if testing conditions are uncertain, consider adjusting the timeout. You can also check if the selector is correct❌. More information: " + e.getMessage());
+      log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\" within the defined timeout. Make sure this WebElement is fully visible and ready for interaction, and if testing conditions are uncertain, consider adjusting the timeout. You can also check if the selector is correct❌. More information: " + e.getMessage());
+    } catch (ElementClickInterceptedException e) {
+      log.fatal("❌Test failed to click WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\", because it might have been intercepted by another WebElement. Make sure this WebElement is fully visible and ready for interaction❌. More information: " + e.getMessage());
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
     }

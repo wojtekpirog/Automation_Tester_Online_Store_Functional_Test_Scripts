@@ -1,19 +1,1 @@
 
-[INFO ] 2023-09-24 23:49:29.576 [main] MainPage - User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".
-[INFO ] 2023-09-24 23:49:30.243 [main] LoginPage - Login form inside Page Object "LoginPage" was submitted with username and password.
-[INFO ] 2023-09-24 23:49:30.489 [main] MyAccountPage - User clicked on WebElement "storeLogo" and was directed to Page Object "MainPage".
-[INFO ] 2023-09-24 23:49:30.932 [main] MainPage - User selected "Hummingbird Printed Sweater" and was directed to Page Object "Product Details Page".
-[INFO ] 2023-09-24 23:49:30.957 [main] ProductDetailsPage - Discount info element with text "-20%" inside Page Object "ProductDetailsPage" is displayed. The discount for the product is 20%.
-[INFO ] 2023-09-24 23:49:31.062 [main] ProductDetailsPage - Size M was selected. The size is valid.
-[INFO ] 2023-09-24 23:49:31.976 [main] ProductDetailsPage - 5 pieces of product have been added to cart.
-[INFO ] 2023-09-24 23:49:32.287 [main] ShoppingCartPage - User clicked WebElement "proceedToCheckoutAnchor" inside Page Object "ShoppingCartPage" and was directed to PageObject "DeliveryAndPaymentInformationPage".
-[INFO ] 2023-09-24 23:49:33.850 [main] DeliveryAndPaymentInformationPage - Details on user address, delivery & payment methods were selected in Page Object "DeliveryAndPaymentInformationPage".
-[INFO ] 2023-09-24 23:49:36.418 [main] OrderConfirmationPage - Screenshot showing order details was taken and saved to C:\Users\HARDPC\Pictures\Screenshots\confirmation_screenshot.png.
-[INFO ] 2023-09-24 23:49:57.835 [main] MainPage - User clicked on WebElement "signInAnchor" and was directed to Page Object "Login Page".
-[INFO ] 2023-09-24 23:49:58.488 [main] LoginPage - Login form inside Page Object "LoginPage" was submitted with username and password.
-[INFO ] 2023-09-24 23:49:58.726 [main] MyAccountPage - User clicked on WebElement "addressesAnchor" inside Page Object "MyAccountPage" was directed to Page Object "YourAddressesPage".
-[INFO ] 2023-09-24 23:49:58.962 [main] YourAddressesPage - User clicked WebElement "createNewAddressAnchor" inside Page Object "YourAddressesPage" and was directed to Page Object "AddressCreationForm".
-[INFO ] 2023-09-24 23:49:59.764 [main] AddressCreationForm - Form in Page Object "AddressCreationForm" was filled with data from scenario and submitted.
-[INFO ] 2023-09-24 23:49:59.789 [main] YourAddressesPage - ✅All entries regarding user address information are verified and correct✅
-[INFO ] 2023-09-24 23:50:00.124 [main] YourAddressesPage - The "Delete" anchor inside Page Object "YourAddressesPage" was clicked. Waiting for deletion confirmation...
-[INFO ] 2023-09-24 23:50:00.142 [main] YourAddressesPage - ✅Address has been deleted successfully.✅

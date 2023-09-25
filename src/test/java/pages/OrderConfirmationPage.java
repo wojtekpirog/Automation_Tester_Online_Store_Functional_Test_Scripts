@@ -24,7 +24,6 @@ public class OrderConfirmationPage {
     PageFactory.initElements(browser, this);
   }
 
-  //Method to take a screenshot which depicts order confirmation information with the order's amount:
   public void takeScreenshot(String pathWithFile) {
     //Take a screenshot with a .png extension of a particular element of the page using Ashot API and save it to file "confirmation_screenshot.png"
     try {

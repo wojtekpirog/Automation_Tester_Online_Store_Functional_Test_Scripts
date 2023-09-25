@@ -18,14 +18,13 @@ public class ShoppingCartPage {
     this.browser = browser;
     PageFactory.initElements(browser, this);
   }
-  //Method to proceed to checkout page:
+
   public void proceedToCheckout() {
     try {
       proceedToCheckoutAnchor.click();
       log.info("User clicked WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ShoppingCartPage\" and was directed to PageObject \"DeliveryAndPaymentInformationPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Failed to find an element \"proceedToCheckoutAnchor\" inside Page Object \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-      //e.printStackTrace();
     }
   }
 }

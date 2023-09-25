@@ -119,6 +119,7 @@ fabric.properties
 ## File-based project format:
 
 ## Plugin-specific files:
+.logs/
 
 # IntelliJ
 

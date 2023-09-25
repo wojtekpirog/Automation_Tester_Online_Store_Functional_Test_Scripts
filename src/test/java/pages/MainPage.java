@@ -21,7 +21,6 @@ public class MainPage {
     PageFactory.initElements(browser, this);
   }
 
-  //Method to go to login page:
   public void goToLoginPage() {
     try {
       signInAnchor.click();
@@ -31,7 +30,7 @@ public class MainPage {
       throw e;
     }
   }
-  //Method to go to PDP (Product Details Page):
+
   public void openProductDetailsPage() {
     try {
       productSelectionAnchor.click();

@@ -21,7 +21,6 @@ public class MyAccountPage {
     PageFactory.initElements(browser, this);
   }
 
-  //Method to direct user to the home page:
   public void goToHomePage() {
     try {
       storeLogo.click();
@@ -30,11 +29,11 @@ public class MyAccountPage {
       log.fatal("❌Test failed to find WebElement \"storeLogo\" inside Page Object \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
   }
-  //Method to direct user to the address creation form:
+
   public void goToAddressCreationForm() {
     try {
       addressesAnchor.click();
-      log.info("User clicked on WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\" was directed to Page Object \"YourAddressesPage\".");
+      log.info("User clicked on WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\" and was directed to Page Object \"YourAddressesPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"addressesAnchor\" inside Page Object \"MyAccountPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
     }
