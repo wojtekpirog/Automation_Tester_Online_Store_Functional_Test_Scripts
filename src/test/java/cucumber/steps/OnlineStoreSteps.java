@@ -1,5 +1,7 @@
 package cucumber.steps;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,8 +16,8 @@ public class OnlineStoreSteps {
   private static final Logger log = LogManager.getLogger(OnlineStoreSteps.class);
   private WebDriver browser;
 
-  @Given("User with email {word} and password {word} is logged in to the homepage")
-  public void LogInToUserAccount(String email, String password) {
+  @Before
+  public void setUpBrowser() {
     System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
     browser = new ChromeDriver();
     log.info("Chrome browser has been opened.");
@@ -23,10 +25,13 @@ public class OnlineStoreSteps {
     log.info("Browser window has been maximized.");
     browser.manage().deleteAllCookies();
     log.info("Browser cookies have been deleted.");
-    log.info("Test environment - Chrome Browser - has been setup and is ready for testing.");
+    log.info("⚠️Test environment - Chrome Browser - has been setup and is ready for testing.⚠️");
     browser.get("https://mystore-testlab.coderslab.pl/index.php?");
     log.info("Main page \"https://mystore-testlab.coderslab.pl/index.php?\" has been opened.");
+  }
 
+  @Given("User with email {word} and password {word} is logged in to the homepage")
+  public void LogInToUserAccount(String email, String password) {
     MainPage mainPage = new MainPage(browser);
     mainPage.goToLoginPage();
 
@@ -88,5 +93,11 @@ public class OnlineStoreSteps {
   public void assertAddressDeleted() {
     YourAddressesPage pageWithAddresses = new YourAddressesPage(browser);
     pageWithAddresses.assertThatAddressWasDeleted();
+  }
+
+  @After
+  public void tearDown() {
+    log.info("All scenario steps were executed and automated tests were finished");
+//    browser.quit();
   }
 }
