@@ -1,5 +1,6 @@
 package pages;
 
+import auxiliaryClasses.AddressVerification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -56,32 +57,18 @@ public class YourAddressesPage {
     }
   }
 
-  public void checkData(String expectedAlias, String expectedStreetAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhone) {
+  public void checkData(String expectedAlias, String expectedStreetAddress, String expectedCity, String expectedZipcode, String expectedCountry, String expectedPhoneNumber) {
+    AddressVerification addressVerification = new AddressVerification(browser);
     try {
-      String addressText = lastAddressBody.getText();
-      try {
-        assertContains(addressText, expectedAlias, expectedStreetAddress, expectedCity, expectedZipcode, expectedCountry, expectedPhone);
-        log.info("✅All entries regarding user address information are verified and correct✅");
-      } catch (AssertionError e) {
-        log.error("Assertion error emerged - test failed to assert that all user address data contained within text content of WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\" match the ones specified in scenario. More information: " + e.getMessage());
-      }
+      String textContentOfAddress = lastAddressBody.getText();
+      addressVerification.assertAliasIsCorrect(textContentOfAddress, expectedAlias);
+      addressVerification.assertStreetAddressIsCorrect(textContentOfAddress, expectedStreetAddress);
+      addressVerification.assertCityNameIsCorrect(textContentOfAddress, expectedCity);
+      addressVerification.assertZipcodeIsCorrect(textContentOfAddress, expectedZipcode);
+      addressVerification.assertCorrectCountryWasSelected(textContentOfAddress, expectedCountry);
+      addressVerification.assertPhoneNumberIsCorrect(textContentOfAddress, expectedPhoneNumber);
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
-  }
-
-  public void assertContains(String textContent, String alias, String streetAddress, String city, String zipcode, String country, String phone) {
-    Assert.assertTrue(textContent.contains(alias));
-    log.info("Test checked if text content of WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\" contains the following alias: " + alias + ".");
-    Assert.assertTrue(textContent.contains(streetAddress));
-    log.info("Test checked if text content of WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\" contains the following street address: " + streetAddress + ".");
-    Assert.assertTrue(textContent.contains(city));
-    log.info("Test checked if text content of WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\" contains the following city name: " + city + ".");
-    Assert.assertTrue(textContent.contains(zipcode));
-    log.info("Test checked if text content of WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\" contains the following zipcode: " + zipcode + ".");
-    Assert.assertTrue(textContent.contains(country));
-    log.info("Test checked if text content of WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\" contains the following country: " + country + ".");
-    Assert.assertTrue(textContent.contains(phone));
-    log.info("Test checked if text content of WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\" contains the following phone number: " + phone + ".");
   }
 }

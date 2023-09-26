@@ -2,6 +2,7 @@ package pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,8 +27,8 @@ public class MainPage {
       signInAnchor.click();
       log.info("User clicked on WebElement \"signInAnchor\" and was directed to Page Object \"Login Page\".");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find an element \"signInAnchor\" from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-      throw e;
+      log.fatal("❌Test script failed to find WebElement \"signInAnchor\" inside Page Object \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"signInAnchor\" inside Page Object \"MainPage\".❌");
     }
   }
 
@@ -36,7 +37,8 @@ public class MainPage {
       productSelectionAnchor.click();
       log.info("User selected \"Hummingbird Printed Sweater\" and was directed to Page Object \"Product Details Page\".");
     } catch (NoSuchElementException e) {
-      log.fatal("❌Failed to find an element \"productSelectionAnchor\" from \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      log.fatal("❌Failed to find WebElement \"productSelectionAnchor\" inside Page Object \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"signInAnchor\" inside Page Object \"MainPage\".❌");
     }
   }
 }
