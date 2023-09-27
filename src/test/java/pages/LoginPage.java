@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
   private static final Logger log = LogManager.getLogger(LoginPage.class);
-  private WebDriver browser;
+  private final WebDriver browser;
 
   @FindBy(id = "field-email")
   private WebElement emailInput;

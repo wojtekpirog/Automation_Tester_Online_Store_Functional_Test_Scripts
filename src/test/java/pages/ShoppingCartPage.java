@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ShoppingCartPage {
   private static final Logger log = LogManager.getLogger(ShoppingCartPage.class);
-  private WebDriver browser;
+  private final WebDriver browser;
   @FindBy(xpath = "//a[text()='Proceed to checkout']")
   private WebElement proceedToCheckoutAnchor;
 

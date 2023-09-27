@@ -120,6 +120,7 @@ fabric.properties
 
 ## Plugin-specific files:
 logs
+report.html
 
 # IntelliJ
 

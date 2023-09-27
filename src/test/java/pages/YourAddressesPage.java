@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class YourAddressesPage {
   private static final Logger log = LogManager.getLogger(YourAddressesPage.class);
-  private WebDriver browser;
+  private final WebDriver browser;
   @FindBy(xpath = "//section[@id=\"content\"]/div[last()-2]")
   private WebElement lastAddressBody;
   @FindBy(xpath = "//a[@data-link-action=\"add-address\"]")
@@ -26,7 +26,7 @@ public class YourAddressesPage {
     this.browser = browser;
     PageFactory.initElements(browser, this);
   }
-  //Method to delete an address:
+
   public void deleteAddress() {
     try {
       deleteAddressAnchor.click();
@@ -35,7 +35,7 @@ public class YourAddressesPage {
       log.fatal("❌Test failed to find an element \"deleteAddressAnchor\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
     }
   }
-  //Method to start creating a new address by going to an address creation form:
+
   public void goToAddressCreationForm() {
     try {
       createNewAddressAnchor.click();
@@ -46,7 +46,6 @@ public class YourAddressesPage {
   }
 
   public void assertThatAddressWasDeleted() {
-    //Check if address does not exist on the 'Addresses' page:
     try {
       Assert.assertTrue(successAlert.getText().contains("deleted"));
       log.info("✅Address has been deleted successfully.✅");
@@ -65,7 +64,7 @@ public class YourAddressesPage {
       addressVerification.assertStreetAddressIsCorrect(textContentOfAddress, expectedStreetAddress);
       addressVerification.assertCityNameIsCorrect(textContentOfAddress, expectedCity);
       addressVerification.assertZipcodeIsCorrect(textContentOfAddress, expectedZipcode);
-      addressVerification.assertCorrectCountryWasSelected(textContentOfAddress, expectedCountry);
+      addressVerification.assertCountryIsCorrect(textContentOfAddress, expectedCountry);
       addressVerification.assertPhoneNumberIsCorrect(textContentOfAddress, expectedPhoneNumber);
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"lastAddressBody\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());

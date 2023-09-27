@@ -21,7 +21,7 @@ public class LoginInformation {
       log.info("User email address: \"" + email + "\" was put into WebElement \"emailInput\" inside Page Object \"LoginPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test script failed to find WebElement \"emailInput\" inside Page Object \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-      Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"emailInput\" inside Page Object \"LoginPage\".❌");
+      Assert.fail("❌Test script failed to put the user email into form control WebElement \"emailInput\" and reported \"NoSuchElementException\" because of not being able to find the WebElement inside Page Object \"LoginPage\". Check and modify your selector or pick a different locator strategy.❌");
     }
   }
 
@@ -32,7 +32,7 @@ public class LoginInformation {
       log.info("User password: \"" + password + "\" was put into WebElement \"passwordInput\" inside Page Object \"LoginPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test script failed to find WebElement \"passwordInput\" inside Page Object \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-      Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"passwordInput\" inside Page Object \"LoginPage\".❌");
+      Assert.fail("❌Test script failed to put the user password into form control WebElement \"passwordInput\" and reported \"NoSuchElementException\" because of not being able to find the WebElement inside Page Object \"LoginPage\". Check and modify your selector or pick a different locator strategy.❌");
     }
   }
 
@@ -42,7 +42,7 @@ public class LoginInformation {
       log.info("WebElement \"signInButton\" was found and clicked inside Page Object \"LoginPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test script failed to find WebElement \"signInButton\" inside Page Object \"LoginPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-      Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"signInButton\" inside Page Object \"LoginPage\".❌");
+      Assert.fail("❌Test script failed to submit login form by clicking on WebElement \"signInButton\" and reported \"NoSuchElementException\" because of not being able to find the WebElement inside Page Object \"LoginPage\". Check and modify your selector or pick a different locator strategy.❌");
     }
   }
 }

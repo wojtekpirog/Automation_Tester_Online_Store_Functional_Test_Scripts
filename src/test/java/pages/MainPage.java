@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
   private static final Logger log = LogManager.getLogger(MainPage.class);
-  private WebDriver browser;
+  private final WebDriver browser;
   @FindBy(xpath = "//a/span[text()='Sign in']")
   private WebElement signInAnchor;
   @FindBy(xpath = "//a[text()='Hummingbird printed sweater']")
@@ -28,7 +28,7 @@ public class MainPage {
       log.info("User clicked on WebElement \"signInAnchor\" and was directed to Page Object \"Login Page\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test script failed to find WebElement \"signInAnchor\" inside Page Object \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-      Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"signInAnchor\" inside Page Object \"MainPage\".❌");
+      Assert.fail("❌Test script failed to direct user to Page Object \"LoginPage\" reported \"NoSuchElementException\" because of not being able to find WebElement \"signInAnchor\" inside Page Object \"MainPage\". Make sure your selector for the WebElement is correct or try a different locator strategy.❌");
     }
   }
 
@@ -38,7 +38,7 @@ public class MainPage {
       log.info("User selected \"Hummingbird Printed Sweater\" and was directed to Page Object \"Product Details Page\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Failed to find WebElement \"productSelectionAnchor\" inside Page Object \"MainPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-      Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"signInAnchor\" inside Page Object \"MainPage\".❌");
+      Assert.fail("❌Test script failed to direct user to Page Object \"Product Details Page\" and reported \"NoSuchElementException\" because of not being able to find WebElement \"signInAnchor\" inside Page Object \"MainPage\". Make sure your selector for the WebElement is correct or try a different locator strategy.❌");
     }
   }
 }

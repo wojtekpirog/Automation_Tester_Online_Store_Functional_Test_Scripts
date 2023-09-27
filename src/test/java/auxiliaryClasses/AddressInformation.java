@@ -60,18 +60,20 @@ public class AddressInformation {
   }
 
   public void selectCountry(WebElement countryDropdown, String country) {
+    Select countrySelect = new Select(countryDropdown);
     try {
       countryDropdown.click();
-      Select countrySelect = new Select(countryDropdown);
       log.info("Dropdown list WebElement \"countryDropdown\" inside Page Object \"AddressCreationForm\" was clicked and available options were displayed.");
-      countrySelect.selectByVisibleText(country);
-      log.info("Dropdown list option \"" + country + "\" was selected.");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test script failed to find WebElement \"countryDropdown\" inside Page Object \"AddressCreationForm\". Make sure your selector is correct.❌ More information: " + e.getMessage());
       Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"countryDropdown\" inside Page Object \"AddressCreationForm\".❌");
-    } catch (IllegalArgumentException e) {
+    }
+    try {
+      countrySelect.selectByVisibleText(country);
+      log.info("Dropdown list option \"" + country + "\" was selected.");
+    } catch (NoSuchElementException e) {
       log.fatal("❌Test was unable to find and select option of drop-down WebElement \"countryDropdown\" inside Page Object \"AddressCreationForm\" that corresponds with the option value provided by scenario (\"" + country + "\").❌ More information: " + e.getMessage());
-      Assert.fail("❌Test script reported \"IllegalArgumentException\" because of not being able to find and select any visible option inside drop-down WebElement \"countryDropdown\" inside Page Object \"AddressCreationForm\". Make sure to provide an option value that corresponds to any of the option value available in the drop-down menu option list.❌ More information: " + e.getMessage());
+      Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find and select any visible option inside drop-down WebElement \"countryDropdown\" inside Page Object \"AddressCreationForm\". Make sure to provide an option value that corresponds to any of the option value available in the drop-down menu option list.❌ More information: " + e.getMessage());
     }
   }
 
