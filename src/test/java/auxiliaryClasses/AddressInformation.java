@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class AddressInformation {
   private static final Logger log = LogManager.getLogger(AddressInformation.class);
-  private WebDriver browser;
+  private final WebDriver browser;
   public AddressInformation(WebDriver browser) {
     this.browser = browser;
   }

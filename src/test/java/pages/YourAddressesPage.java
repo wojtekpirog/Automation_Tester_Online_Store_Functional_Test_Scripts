@@ -33,6 +33,7 @@ public class YourAddressesPage {
       log.info("The \"Delete\" anchor inside Page Object \"YourAddressesPage\" was clicked. Waiting for deletion confirmation...");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find an element \"deleteAddressAnchor\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      Assert.fail("❌Test script failed to delete the address and reported \"NoSuchElementException\" because of not being able to locate WebElement \"deleteAddressAnchor\" inside Page Object \"YourAddressesPage\". Check your selector or pick a different locator strategy.❌");
     }
   }
 
@@ -42,6 +43,7 @@ public class YourAddressesPage {
       log.info("User clicked WebElement \"createNewAddressAnchor\" inside Page Object \"YourAddressesPage\" and was directed to Page Object \"AddressCreationForm\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"createNewAddressAnchor\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      Assert.fail("❌Test script failed to direct user to PageObject \"AddressCreationForm\" and reported \"NoSuchElementException\" because of not being able to find WebElement \"createNewAddressAnchor\" inside Page Object \"YourAddressesPage\". Check your selector or pick a different locator strategy.❌");
     }
   }
 
@@ -51,8 +53,10 @@ public class YourAddressesPage {
       log.info("✅Address has been deleted successfully.✅");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"successAlert\" inside Page Object \"YourAddressesPage\". Make sure your selector is correct.❌. More information: " + e.getMessage());
+      Assert.fail("❌Test script failed to check the text content of WebElement \"successAlert\" and assert that address was successfully deleted because of not being able to locate WebElement \"successAlert\" inside Page Object \"YourAddressesPage\". Check your selector or pick a different locator strategy.❌");
     } catch (AssertionError e) {
-      log.error("WebElement \"successAlert\" does not provide information on the address deletion success, so the address may still be visible on the \"Your addresses\" page. Make sure you defined a correct selector for WebElement \"successAlert\" and it is fully visible on the page. More information: " + e.getMessage());
+      log.error("WebElement \"successAlert\" does not provide information on the address deletion success, so the address may still be present inside Page Object \"YourAddressesPage\". Make sure you defined a correct selector and picked the most suitable locator strategy for WebElement \"successAlert\" and that it is fully visible on the page. More information: " + e.getMessage());
+      Assert.fail("❌Test script failed to assert that address was deleted successfully and reported the following exception: \"" + e.getClass().getSimpleName() + "\".❌ Make sure you provided an appropriate selector and/or picked the most suitable locator strategy for WebElement \"successAlert\", and also check its locating code for any spelling or punctuation errors.");
     }
   }
 

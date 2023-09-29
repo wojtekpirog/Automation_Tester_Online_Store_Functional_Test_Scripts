@@ -2,6 +2,7 @@ package pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,6 +26,7 @@ public class ShoppingCartPage {
       log.info("User clicked WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ShoppingCartPage\" and was directed to PageObject \"DeliveryAndPaymentInformationPage\".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Failed to find an element \"proceedToCheckoutAnchor\" inside Page Object \"ShoppingCartPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
+      Assert.fail("❌Test script failed to direct user to Page Object \"DeliveryAndPaymentInformationPage\" reported \"NoSuchElementException\" because of not being able to find WebElement \"proceedToCheckoutAnchor\" inside Page Object \"ShoppingCartPage\". Check your selector or pick a different locator strategy.❌");
     }
   }
 }

@@ -33,7 +33,7 @@ public class OrderConfirmationPage {
       log.info("Screenshot showing order details was taken and saved to " + pathWithFile + ".");
     } catch (NoSuchElementException e) {
       log.fatal("❌Test failed to find WebElement \"orderDetails\" inside Page Object \"OrderConfirmationPage\". Make sure your selector is correct.❌ More information: " + e.getMessage());
-      Assert.fail("❌Test script reported \"NoSuchElementException\" when trying to take a screenshot because of not being able to find WebElement \"orderDetails\" inside Page Object \"OrderConfirmationPage\", that contains necessary information about order confirmation and its amount. Make sure to pick an accurate selector or try a different locator strategy.❌ More information: " + e.getMessage());
+      Assert.fail("❌Test script reported \"NoSuchElementException\" when trying to take a screenshot because of not being able to find WebElement \"orderDetails\" inside Page Object \"OrderConfirmationPage\", that contains necessary information about order confirmation and its amount. Make sure to pick an accurate selector or try a different locator strategy.❌");
     } catch (IOException e) {
       log.error("An error occurred while copying or saving the file. Check the file path and make sure the destination location exists and the destination folder or directory allows I/O operations. Also, make sure there is enough space on your system's hard drive and it allows the resulting output file's format. More information: " + e.getMessage());
       Assert.fail("❌Test script reported \"IOException\" when attempting an I/O operation because of not being able to take a screenshot or save it on the provided location. Make sure the location exists and is correct and has permissions to write files.❌");

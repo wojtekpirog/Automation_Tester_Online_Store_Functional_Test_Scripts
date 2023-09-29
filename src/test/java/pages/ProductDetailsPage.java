@@ -68,7 +68,7 @@ public class ProductDetailsPage {
       log.fatal("❌Sweater size " + size + " is invalid❌. Available valid sizes of the product are: \"S\", \"M\", \"L\" and \"XL\".");
       Assert.fail("❌Test scenario provided invalid size: " + size + ". Make sure to provide one of the valid product sizes: \"S\", \"M\", \"L\", \"XL\".❌");
     }
-    //Check if value of variable `quantity` is greater than 0, else fail the test
+    //Check if value of variable `quantity` is greater than 0, otherwise fail the test
     //Force JavaScript to change the "value" attribute of `quantityWantedInput` (input of type number)
     JavascriptExecutor jsExecutor = (JavascriptExecutor)browser;
     try {
@@ -82,7 +82,7 @@ public class ProductDetailsPage {
       log.fatal("❌Test failed to find WebElement \"quantityWantedInput\" inside Page Object \"ProductDetailsPage\". Make sure your selector is correct❌. More information: " + e.getMessage());
       Assert.fail("❌Test script reported \"NoSuchElementException\" because of not being able to find WebElement \"quantityWantedInput\" inside Page Object \"ProductDetailsPage\". Check your selector or pick a different locator strategy.❌");
     }
-    //Add product to cart
+
     try {
       addToCartButton.click();
     } catch (NoSuchElementException e) {

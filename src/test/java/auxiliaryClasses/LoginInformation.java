@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 public class LoginInformation {
   private static final Logger log = LogManager.getLogger(LoginInformation.class);
-  private WebDriver browser;
+  private final WebDriver browser;
   public LoginInformation(WebDriver browser) {
     this.browser = browser;
   }
